@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public Animator shotGunUI;
 
     public int currentAmmo = 10;
+    public int damageDealt = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,11 @@ public class PlayerController : MonoBehaviour
                 {
                     //Debug.Log("I'm hitting " + hit.transform.name);
                     Instantiate(bulletImpact, hit.point, transform.rotation);
+
+                    if(hit.transform.tag == "Enemy")
+                    {
+                        hit.transform.GetComponent<EnemyController>().TakeDamage(damageDealt);
+                    }
                 }
                 else
                     Debug.Log("I'm hitting nothing");
