@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1791635609446476615}
   - component: {fileID: 1791635609446476614}
   - component: {fileID: 1791635609446476729}
+  - component: {fileID: 83462480}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -76,12 +77,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd93077b7ba4ffa4aa01667cd630fdc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth: {fileID: 83462480}
   moveSpeed: 6
   mouseSensitivity: 4
   playerCam: {fileID: 1791635609462919243}
   bulletImpact: {fileID: 7906375384175040923, guid: 6601ce539ab81d34fa6b9a76366e0cf6,
     type: 3}
+  shotGunUI: {fileID: 0}
   currentAmmo: 10
+  damageDealt: 1
+  currentPoints: 0
+  totalPoints: 0
+  deadScreen: {fileID: 0}
+--- !u!114 &83462480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791635609446476613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c1420df8780d24b97c4dbfd327b887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 0}
 --- !u!1 &1791635609462919241
 GameObject:
   m_ObjectHideFlags: 0

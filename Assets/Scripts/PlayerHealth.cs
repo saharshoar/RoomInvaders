@@ -20,16 +20,26 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         //testing player's heath by Space key  
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(20);
-        }
+        }*/
+
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
+    }
+
+    public void AddHealth(int healAmount)
+    {
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
     }
 }
