@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ammo pickup
   - Enemy
+  - health pickup
   layers:
   - Default
   - TransparentFX

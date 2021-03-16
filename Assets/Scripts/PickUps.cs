@@ -28,5 +28,12 @@ public class PickUps : MonoBehaviour
 
             Destroy(gameObject, 0.01f);
         }
+
+        if (other.tag == "Player" && gameObject.tag == "health pickup")
+        {
+            PlayerController.instance.playerHealth.AddHealth(pickupAmount);
+
+            Destroy(gameObject, 0.01f);
+        }
     }
 }

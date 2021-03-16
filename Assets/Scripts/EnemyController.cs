@@ -20,10 +20,14 @@ public class EnemyController : MonoBehaviour
     public GameObject bullet;
     public Transform firePoint;
 
+    private int dropChance;
+    public GameObject ammoDrop;
+    public GameObject healthDrop;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        dropChance = Random.Range(1, 101);
     }
 
     // Update is called once per frame
@@ -56,9 +60,23 @@ public class EnemyController : MonoBehaviour
         health = health - damage;
         if (health <= 0)
         {
+            if (dropChance >= 50 && dropChance <= 74)
+            {
+                Instantiate(ammoDrop, transform.position, transform.rotation);
+            }
+            else if (dropChance >= 75 && dropChance <= 99)
+            {
+                Instantiate(healthDrop, transform.position, transform.rotation);
+            }
+            else if (dropChance >= 100)
+            {
+                Instantiate(ammoDrop, transform.position, transform.rotation);
+                Instantiate(healthDrop, transform.position, transform.rotation);
+            }
+
             RewardPoints(pointWorth);
             Instantiate(explosion, transform.position, transform.rotation);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.001f);
         }
     }
 
