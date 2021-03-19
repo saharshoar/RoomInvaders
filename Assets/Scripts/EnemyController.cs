@@ -5,19 +5,25 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public int health = 3;
+    public int damageDealt = 20;
     public GameObject explosion;
 
     public float playerRange = 10f;
     public float shootRange = 5f;
+    public float meleeRange = 2f;
 
     public Rigidbody theRB;
     public float moveSpeed = 2.5f;
 
     public int pointWorth = 100;
 
+    public float playerDistance;
+
     public bool shouldShoot;
     public float fireRate = 0.5f;
-    private float shotCounter = 5f;
+    private float shotCounter = 2f;
+    public float meleeCounter = 1f;
+    private float meleeRate = 1f;
     public GameObject bullet;
     public Transform firePoint;
 
@@ -34,6 +40,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerDistance = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
+
         MoveEnemy();
     }
 
@@ -41,15 +49,14 @@ public class EnemyController : MonoBehaviour
     {
         if (shouldShoot)
         {
-            if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange
-                && Vector3.Distance(transform.position, PlayerController.instance.transform.position) > shootRange)
+            if (playerDistance < playerRange && playerDistance > shootRange)
             {
                 Vector3 playerDirection = PlayerController.instance.transform.position - transform.position;
 
                 theRB.velocity = playerDirection.normalized * moveSpeed;
 
             }
-            else if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= shootRange && shouldShoot)
+            else if (playerDistance <= shootRange && shouldShoot)
             {
                 theRB.velocity = Vector3.zero;
 
@@ -63,11 +70,20 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange)
+            if (playerDistance < playerRange)
             {
                 Vector3 playerDirection = PlayerController.instance.transform.position - transform.position;
 
                 theRB.velocity = playerDirection.normalized * moveSpeed;
+
+                meleeCounter -= Time.deltaTime;
+
+                if (playerDistance <= meleeRange && meleeCounter <= 0)
+                {
+                    PlayerController.instance.playerHealth.TakeDamage(damageDealt);
+                    meleeCounter = meleeRate;
+                    
+                }
 
             }
             else
