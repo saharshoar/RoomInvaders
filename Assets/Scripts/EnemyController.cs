@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public GameObject explosion;
 
     public float playerRange = 10f;
+    public float shootRange = 5f;
 
     public Rigidbody theRB;
     public float moveSpeed = 2.5f;
@@ -33,16 +34,27 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange)
+        MoveEnemy();
+    }
+
+    public void MoveEnemy()
+    {
+        if (shouldShoot)
         {
-            Vector3 playerDirection = PlayerController.instance.transform.position - transform.position;
-
-            theRB.velocity = playerDirection.normalized * moveSpeed;
-
-            if(shouldShoot)
+            if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange
+                && Vector3.Distance(transform.position, PlayerController.instance.transform.position) > shootRange)
             {
+                Vector3 playerDirection = PlayerController.instance.transform.position - transform.position;
+
+                theRB.velocity = playerDirection.normalized * moveSpeed;
+
+            }
+            else if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= shootRange && shouldShoot)
+            {
+                theRB.velocity = Vector3.zero;
+
                 shotCounter -= Time.deltaTime;
-                if(shotCounter <= 0)
+                if (shotCounter <= 0)
                 {
                     Instantiate(bullet, firePoint.position, firePoint.rotation);
                     shotCounter = fireRate;
@@ -51,7 +63,17 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            theRB.velocity = Vector3.zero;
+            if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < playerRange)
+            {
+                Vector3 playerDirection = PlayerController.instance.transform.position - transform.position;
+
+                theRB.velocity = playerDirection.normalized * moveSpeed;
+
+            }
+            else
+            {
+                theRB.velocity = Vector3.zero;
+            }
         }
     }
 
