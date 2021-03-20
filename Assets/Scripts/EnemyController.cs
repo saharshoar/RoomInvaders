@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
 
     public float playerRange = 10f;
     public float shootRange = 5f;
-    public float meleeRange = 2f;
+    public float meleeRange = 1.5f;
 
     public Rigidbody theRB;
     public float moveSpeed = 2.5f;
@@ -95,11 +95,14 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health = health - damage;
+        AudioController.instance.PlayEnemyShot();
+
         if (health <= 0)
         {
             DropItem();
 
             PlayerController.instance.RewardPoints(pointWorth);
+            AudioController.instance.PlayEnemyDeath();
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject, 0.001f);
         }

@@ -10,8 +10,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Text enemyText;
     [SerializeField] private Text roundText;
 
+    [SerializeField] private GameObject RoundStartBox;
+    [SerializeField] private Text RoundStartText;
+
     public int enemyCount;
     public int roundNumber = 1;
+    public int enemyNumber = 0;
+    private float roundCounter = 5;
 
 
     // Start is called before the first frame update
@@ -19,6 +24,7 @@ public class SpawnManager : MonoBehaviour
     {
         enemyText.text = "Enemies left: " + enemyCount.ToString();
         roundText.text = "Round: " + roundNumber.ToString();
+        RoundStartBox.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,17 +32,45 @@ public class SpawnManager : MonoBehaviour
     {
         enemyCount = FindObjectsOfType<EnemyController>().Length;
         enemyText.text = "Enemies left: " + enemyCount.ToString();
-        
 
+        StartRound();
+
+    }
+
+    IEnumerator WaitForRound()
+    {
+        RoundStartBox.SetActive(true);
+        RoundStartText.text = "Round " + (roundNumber + 1).ToString() + " is about to begin!";
+        
+        yield return new WaitForSeconds(5);
+
+        RoundStartBox.SetActive(false);
+    }
+
+    private void StartRound()
+    {
         if (enemyCount == 0)
         {
-            roundNumber++;
-            SpawnEnemyWave(roundNumber);
-            roundText.text = "Round: " + roundNumber.ToString();
+            StartCoroutine(WaitForRound());
+            roundCounter -= Time.deltaTime;
 
-            if (roundNumber >= 5)
+            if (roundCounter <= 0)
             {
-                SpawnRangedWave(roundNumber / 2);
+                roundNumber++;
+                enemyNumber++;
+                if (enemyNumber >= 50)
+                {
+                    enemyNumber = 50;
+                }
+                SpawnEnemyWave(enemyNumber);
+                roundText.text = "Round: " + roundNumber.ToString();
+
+                if (roundNumber >= 5)
+                {
+                    SpawnRangedWave(enemyNumber / 2);
+                }
+
+                roundCounter = 5;
             }
         }
     }

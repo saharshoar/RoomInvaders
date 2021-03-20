@@ -31,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
 
+        AudioController.instance.PlayPlayerHurt();
+
         if (currentHealth <= 0)
         {
             currentHealth = 0;

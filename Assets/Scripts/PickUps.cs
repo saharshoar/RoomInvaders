@@ -25,6 +25,7 @@ public class PickUps : MonoBehaviour
         if (other.tag == "Player" && gameObject.tag == "ammo pickup")
         {
             PlayerController.instance.currentAmmo += pickupAmount;
+            AudioController.instance.PlayAmmoPickup();
 
             Destroy(gameObject, 0.01f);
         }
@@ -32,6 +33,7 @@ public class PickUps : MonoBehaviour
         if (other.tag == "Player" && gameObject.tag == "health pickup")
         {
             PlayerController.instance.playerHealth.AddHealth(pickupAmount);
+            AudioController.instance.PlayHealthPickup();
 
             Destroy(gameObject, 0.01f);
         }
