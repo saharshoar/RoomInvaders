@@ -42,7 +42,10 @@ public class EnemyController : MonoBehaviour
     {
         playerDistance = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
 
-        MoveEnemy();
+        if (!PlayerController.instance.hasDied)
+        {
+            MoveEnemy();
+        }
     }
 
     public void MoveEnemy()
@@ -86,10 +89,6 @@ public class EnemyController : MonoBehaviour
                 }
 
             }
-            else
-            {
-                theRB.velocity = Vector3.zero;
-            }
         }
     }
 
@@ -98,29 +97,28 @@ public class EnemyController : MonoBehaviour
         health = health - damage;
         if (health <= 0)
         {
-            if (dropChance >= 50 && dropChance <= 74)
-            {
-                Instantiate(ammoDrop, transform.position, transform.rotation);
-            }
-            else if (dropChance >= 75 && dropChance <= 99)
-            {
-                Instantiate(healthDrop, transform.position, transform.rotation);
-            }
-            else if (dropChance >= 100)
-            {
-                Instantiate(ammoDrop, transform.position, transform.rotation);
-                Instantiate(healthDrop, transform.position, transform.rotation);
-            }
+            DropItem();
 
-            RewardPoints(pointWorth);
+            PlayerController.instance.RewardPoints(pointWorth);
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject, 0.001f);
         }
     }
 
-    public void RewardPoints(int points)
+    private void DropItem()
     {
-        PlayerController.instance.currentPoints += points;
-        PlayerController.instance.totalPoints += points;
+        if (dropChance >= 50 && dropChance <= 74)
+        {
+            Instantiate(ammoDrop, transform.position, transform.rotation);
+        }
+        else if (dropChance >= 75 && dropChance <= 99)
+        {
+            Instantiate(healthDrop, transform.position, transform.rotation);
+        }
+        else if (dropChance >= 100)
+        {
+            Instantiate(ammoDrop, transform.position, transform.rotation);
+            Instantiate(healthDrop, transform.position, transform.rotation);
+        }
     }
 }

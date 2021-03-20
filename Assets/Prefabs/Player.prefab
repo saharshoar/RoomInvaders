@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1791635609446476614}
   - component: {fileID: 1791635609446476729}
   - component: {fileID: 83462480}
+  - component: {fileID: 1301959188}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791635609446476613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1791635609462919244}
@@ -84,11 +85,17 @@ MonoBehaviour:
   bulletImpact: {fileID: 7906375384175040923, guid: 6601ce539ab81d34fa6b9a76366e0cf6,
     type: 3}
   shotGunUI: {fileID: 0}
+  anim: {fileID: 1301959188}
   currentAmmo: 10
   damageDealt: 1
   currentPoints: 0
   totalPoints: 0
   deadScreen: {fileID: 0}
+  pointsBox: {fileID: 0}
+  perkBox: {fileID: 0}
+  ammoText: {fileID: 0}
+  pointsText: {fileID: 0}
+  roundText: {fileID: 0}
 --- !u!114 &83462480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +111,25 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 0}
+--- !u!95 &1301959188
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791635609446476613}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 31dc795c71c2f0e4290f5c5f750a4411, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1791635609462919241
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,8 +33,11 @@ public class PlayerController : MonoBehaviour
     public GameObject deadScreen;
     public GameObject pointsBox;
     public GameObject perkBox;
-    private bool hasDied = false;
+    public GameObject ammoBox;
+    public GameObject roundBox;
+    public bool hasDied = false;
 
+    public Text totalPointsText;
     public Text ammoText;
     public Text pointsText;
     public Text roundText;
@@ -48,6 +51,8 @@ public class PlayerController : MonoBehaviour
         pointsText.text = currentPoints.ToString();
         pointsBox.SetActive(false);
         perkBox.SetActive(false);
+        roundBox.SetActive(true);
+        ammoBox.SetActive(true);
     }
 
     // Update is called once per frame
@@ -124,9 +129,23 @@ public class PlayerController : MonoBehaviour
         if (playerHealth.currentHealth <= 0)
         {
             deadScreen.SetActive(true);
+            totalPointsText.text = totalPoints.ToString();
             hasDied = true;
+            pointsBox.SetActive(false);
+            perkBox.SetActive(false);
+            roundBox.SetActive(false);
+            ammoBox.SetActive(false);
         }
     }
 
+    public void RewardPoints(int points)
+    {
+        currentPoints += points;
+        totalPoints += points;
+    }
 
+    public void LosePoints(int points)
+    {
+        currentPoints -= points;
+    }
 }
