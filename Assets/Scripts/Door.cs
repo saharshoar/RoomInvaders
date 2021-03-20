@@ -9,6 +9,8 @@ public class Door : MonoBehaviour
     public GameObject contextBox;
     public Text contextText;
 
+    public int pointCost = 1000;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +29,15 @@ public class Door : MonoBehaviour
         if (other.tag == "Player")
         {
             contextBox.SetActive(true);
-            contextText.text = "Press E to open for 1000 points";
+            contextText.text = "Press E to open for " + pointCost.ToString() + " points.";
 
-            if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= 1000)
+            if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
             {
-                PlayerController.instance.currentPoints -= 1000;
+                PlayerController.instance.currentPoints -= pointCost;
                 doorAnim.SetBool("DoorOpened", true);
+
+                gameObject.SetActive(false);
+                contextBox.SetActive(false);
             }
         }
     }

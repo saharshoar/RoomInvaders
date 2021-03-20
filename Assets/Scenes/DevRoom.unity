@@ -2610,6 +2610,7 @@ MonoBehaviour:
   doorAnim: {fileID: 963690752}
   contextBox: {fileID: 653032430}
   contextText: {fileID: 1294457973}
+  pointCost: 1000
 --- !u!65 &1257890916
 BoxCollider:
   m_ObjectHideFlags: 0
