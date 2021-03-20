@@ -51,4 +51,13 @@ public class PlayerHealth : MonoBehaviour
 
         healthBar.SetHealth(currentHealth);
     }
+
+    public void ExpandHealthBar()
+    {
+        RectTransform rt = healthBar.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(200, 22.5f);
+        rt.anchoredPosition3D = new Vector3(135, -35, 0);
+        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(currentHealth);
+    }
 }

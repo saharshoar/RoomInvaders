@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
     public int enemyCount;
     public int roundNumber = 1;
     public int enemyNumber = 0;
-    private float roundCounter = 5;
+    private float roundCounter = 5f;
 
 
     // Start is called before the first frame update

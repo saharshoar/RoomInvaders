@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 95.899994, y: -36.90001}
-  m_SizeDelta: {x: 122.20517, y: 22.583637}
+  m_AnchoredPosition: {x: 100, y: -35}
+  m_SizeDelta: {x: 125, y: 22.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &13362
 MonoBehaviour:
@@ -2348,8 +2348,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 2.699997, y: -0.2}
-  m_SizeDelta: {x: 33.880737, y: 32.599667}
+  m_AnchoredPosition: {x: 2.7000122, y: -0.2}
+  m_SizeDelta: {x: 34, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1014220690
 MonoBehaviour:
@@ -4549,6 +4549,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
         type: 3}
+      propertyPath: pointCost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
       propertyPath: contextBox
       value: 
       objectReference: {fileID: 653032430}
@@ -4557,6 +4562,21 @@ PrefabInstance:
       propertyPath: contextText
       value: 
       objectReference: {fileID: 1294457973}
+    - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: isMaxHealthPerk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: isMoveSpeedPerk
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: isIncreasedDamagePerk
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b38f1de45028ebb4685cba141967d078, type: 3}
 --- !u!1001 &5503179263843088334

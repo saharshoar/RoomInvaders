@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
+    [SerializeField] private bool isMaxHealthPerk = false;
+    [SerializeField] private bool isMoveSpeedPerk = false;
+    [SerializeField] private bool isIncreasedDamagePerk = false;
+
     public Animator doorAnim;
     public GameObject contextBox;
     public Text contextText;
@@ -98,6 +102,7 @@ public class Interactable : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
         {
             PlayerController.instance.currentPoints -= pointCost;
+            DrinkPerk();
 
             gameObject.SetActive(false);
             contextBox.SetActive(false);
@@ -107,5 +112,24 @@ public class Interactable : MonoBehaviour
             hasPushedE = true;
             contextText.text = "You don't have enough points to drink this you dingus!";
         }
+    }
+
+    private void DrinkPerk()
+    {
+        if (isMaxHealthPerk)
+        {
+            PlayerController.instance.playerHealth.maxHealth = 150;
+            PlayerController.instance.playerHealth.AddHealth(150);
+            PlayerController.instance.playerHealth.ExpandHealthBar(); 
+        }
+        if (isMoveSpeedPerk)
+        {
+            PlayerController.instance.moveSpeed = 10f;
+        }
+        if (isIncreasedDamagePerk)
+        {
+            PlayerController.instance.damageDealt = 5;
+        }
+
     }
 }
