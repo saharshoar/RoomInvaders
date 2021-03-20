@@ -128,7 +128,16 @@ public class Interactable : MonoBehaviour
         }
         if (isIncreasedDamagePerk)
         {
-            PlayerController.instance.damageDealt = 5;
+            if (PlayerController.instance.currentlyPoweredUp)
+            {
+                PlayerController.instance.tempDamageDealt = 5;
+                PlayerController.instance.damageDealt = 10;
+            }
+            else
+            {
+                PlayerController.instance.damageDealt = 5;
+            }
+            AudioController.instance.IncreaseGunshot();
         }
 
     }

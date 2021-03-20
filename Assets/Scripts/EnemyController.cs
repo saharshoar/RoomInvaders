@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour
     private int dropChance;
     public GameObject ammoDrop;
     public GameObject healthDrop;
+    public GameObject damageDrop;
 
     // Start is called before the first frame update
     void Start()
@@ -122,6 +123,10 @@ public class EnemyController : MonoBehaviour
         {
             Instantiate(ammoDrop, transform.position, transform.rotation);
             Instantiate(healthDrop, transform.position, transform.rotation);
+        }
+        else if (dropChance <= 20)
+        {
+            Instantiate(damageDrop, transform.position, transform.rotation);
         }
     }
 }

@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
 
     public int currentAmmo = 10;
     public int damageDealt = 1;
+    public int tempDamageDealt = 1;
+    public bool damagePickup = false;
+    public bool currentlyPoweredUp = false;
+    public float powerUpCounter = 30f;
 
     public int currentPoints = 0;
     public int totalPoints = 0;
@@ -78,6 +82,24 @@ public class PlayerController : MonoBehaviour
 
             // Shooting
 
+            if (damagePickup && !currentlyPoweredUp)
+            {
+                tempDamageDealt = damageDealt;
+                damageDealt = damageDealt * 2;
+                currentlyPoweredUp = true;
+                damagePickup = false;
+            }
+            else if (damagePickup && currentlyPoweredUp)
+            {
+                currentlyPoweredUp = true;
+                damagePickup = false;
+                powerUpCounter = 15f;
+            }
+            else if (!damagePickup && currentlyPoweredUp)
+            {
+                PowerUpCountdown();
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
                 if (currentAmmo > 0)
@@ -89,6 +111,7 @@ public class PlayerController : MonoBehaviour
                     {
                         //Debug.Log("I'm hitting " + hit.transform.name);
                         Instantiate(bulletImpact, hit.point, transform.rotation);
+                        AudioController.instance.PlayGunshot();
 
                         if (hit.transform.tag == "Enemy")
                         {
@@ -96,9 +119,9 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                     else
-                        Debug.Log("I'm hitting nothing");
+                        //Debug.Log("I'm hitting nothing");
 
-                    AudioController.instance.PlayGunshot();
+                    
                     currentAmmo--;
 
                     //Shotgun animation
@@ -109,6 +132,7 @@ public class PlayerController : MonoBehaviour
             ammoText.text = currentAmmo.ToString();
             pointsText.text = currentPoints.ToString();
 
+            // Bobbing animation for player
             if (moveInput != Vector3.zero)
             {
                 anim.SetBool("isMoving", true);
@@ -118,6 +142,7 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("isMoving", false);
             }
 
+            // Makes the points UI start once points have been accumulated
             if (currentPoints > 0)
             {
                 pointsBox.SetActive(true);
@@ -148,5 +173,26 @@ public class PlayerController : MonoBehaviour
     public void LosePoints(int points)
     {
         currentPoints -= points;
+    }
+
+    IEnumerator PowerUpCountdownRoutine()
+    {
+        
+        yield return new WaitForSeconds(powerUpCounter);
+
+        currentlyPoweredUp = false;
+        damageDealt = tempDamageDealt;
+    }
+
+    private void PowerUpCountdown()
+    {
+        powerUpCounter -= Time.deltaTime;
+
+        if (powerUpCounter <= 0)
+        {
+            currentlyPoweredUp = false;
+            damageDealt = tempDamageDealt;
+            powerUpCounter = 15f;
+        }
     }
 }

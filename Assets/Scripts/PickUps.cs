@@ -37,5 +37,13 @@ public class PickUps : MonoBehaviour
 
             Destroy(gameObject, 0.01f);
         }
+
+        if (other.tag == "Player" && gameObject.tag == "damage pickup")
+        {
+            PlayerController.instance.damagePickup = true;
+            AudioController.instance.PlayAmmoPickup();
+
+            Destroy(gameObject, 0.01f);
+        }
     }
 }

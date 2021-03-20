@@ -79,6 +79,8 @@ MonoBehaviour:
   ammoDrop: {fileID: 560742210299270733, guid: f2879a6081af0cf499926fec8c55d7e1, type: 3}
   healthDrop: {fileID: 8537401487697438824, guid: 58368671736557d4aa177edfe0ce8f08,
     type: 3}
+  damageDrop: {fileID: 3969634161395524893, guid: 055dc38e0c18ce04883c72a7d3c9b0f0,
+    type: 3}
 --- !u!54 &5120858214120631108
 Rigidbody:
   m_ObjectHideFlags: 0

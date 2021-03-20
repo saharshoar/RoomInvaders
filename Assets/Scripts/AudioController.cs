@@ -45,6 +45,11 @@ public class AudioController : MonoBehaviour
         gunshot.Stop();
         gunshot.Play();
     }
+    public void IncreaseGunshot()
+    {
+        gunshot.volume = 1;
+    }
+
     public void PlayHealthPickup()
     {
         health.Stop();

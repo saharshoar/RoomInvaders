@@ -9,6 +9,7 @@ TagManager:
   - health pickup
   - Door
   - Perk Machine
+  - damage pickup
   layers:
   - Default
   - TransparentFX

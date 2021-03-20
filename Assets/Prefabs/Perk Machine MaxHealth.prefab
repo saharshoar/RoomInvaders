@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5074743792954697
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761230, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19e941ed1c7ec58468e98998bad74955, type: 2}
+    - target: {fileID: 7142318921514761715, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_Name
+      value: Perk Machine MaxHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: doorAnim
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: pointCost
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: contextBox
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: contextText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: isMaxHealthPerk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: isMoveSpeedPerk
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: isIncreasedDamagePerk
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b38f1de45028ebb4685cba141967d078, type: 3}
