@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8537401487697438830}
   - component: {fileID: 8537401487697438825}
   - component: {fileID: 8537401487697438831}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Health Pickup
   m_TagString: health pickup
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 8537401489349320092}
   - component: {fileID: 8537401489349320066}
   - component: {fileID: 8537401489349320093}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: health
   m_TagString: Untagged
   m_Icon: {fileID: 0}

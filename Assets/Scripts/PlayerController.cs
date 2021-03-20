@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bulletImpact;
     public Animator shotGunUI;
+    public Animator anim;
 
     public int currentAmmo = 10;
     public int damageDealt = 1;
@@ -31,11 +33,14 @@ public class PlayerController : MonoBehaviour
     public GameObject deadScreen;
     private bool hasDied = false;
 
+    public Text ammoText;
+
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
         playerRb = GetComponent<Rigidbody>();
+        ammoText.text = currentAmmo.ToString();
     }
 
     // Update is called once per frame
@@ -87,6 +92,18 @@ public class PlayerController : MonoBehaviour
                     shotGunUI.SetTrigger("Shoot");
                 }
             }
+
+            ammoText.text = currentAmmo.ToString();
+
+            if (moveInput != Vector3.zero)
+            {
+                anim.SetBool("isMoving", true);
+            }
+            else
+            {
+                anim.SetBool("isMoving", false);
+            }
+
         }
 
         // Game Over functionality
