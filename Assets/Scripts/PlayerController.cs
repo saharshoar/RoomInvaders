@@ -31,9 +31,13 @@ public class PlayerController : MonoBehaviour
     public int totalPoints = 0;
 
     public GameObject deadScreen;
+    public GameObject pointsBox;
+    public GameObject perkBox;
     private bool hasDied = false;
 
     public Text ammoText;
+    public Text pointsText;
+    public Text roundText;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +45,9 @@ public class PlayerController : MonoBehaviour
         instance = this;
         playerRb = GetComponent<Rigidbody>();
         ammoText.text = currentAmmo.ToString();
+        pointsText.text = currentPoints.ToString();
+        pointsBox.SetActive(false);
+        perkBox.SetActive(false);
     }
 
     // Update is called once per frame
@@ -94,6 +101,7 @@ public class PlayerController : MonoBehaviour
             }
 
             ammoText.text = currentAmmo.ToString();
+            pointsText.text = currentPoints.ToString();
 
             if (moveInput != Vector3.zero)
             {
@@ -102,6 +110,11 @@ public class PlayerController : MonoBehaviour
             else
             {
                 anim.SetBool("isMoving", false);
+            }
+
+            if (currentPoints > 0)
+            {
+                pointsBox.SetActive(true);
             }
 
         }
