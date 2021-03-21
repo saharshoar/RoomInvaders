@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
+    public static SpawnManager instance;
+
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject enemyRangedPrefab;
     [SerializeField] private Text enemyText;
@@ -22,6 +24,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         enemyText.text = "Enemies left: " + enemyCount.ToString();
         roundText.text = "Round: " + roundNumber.ToString();
         RoundStartBox.SetActive(false);

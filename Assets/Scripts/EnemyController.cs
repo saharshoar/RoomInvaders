@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     public float meleeRange = 2f;
 
     public Rigidbody theRB;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 4f;
     private float defaultSpeed;
 
     public int pointWorth = 100;
@@ -57,6 +57,22 @@ public class EnemyController : MonoBehaviour
         if (!PlayerController.instance.hasDied)
         {
             MoveEnemy();
+
+            if (SpawnManager.instance.roundNumber == 5)
+            {
+                moveSpeed = 5f;
+                defaultSpeed = 4f;
+            }
+            else if (SpawnManager.instance.roundNumber == 10)
+            {
+                moveSpeed = 6.5f;
+                defaultSpeed = 5f;
+            }
+            else if (SpawnManager.instance.roundNumber == 25)
+            {
+                moveSpeed = 9f;
+                defaultSpeed = 7f;
+            }
         }
     }
             

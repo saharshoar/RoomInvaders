@@ -10,8 +10,13 @@ public class Interactable : MonoBehaviour
     [SerializeField] private bool isMoveSpeedPerk = false;
     [SerializeField] private bool isIncreasedDamagePerk = false;
     [SerializeField] private NavMeshCarve carve;
+    [SerializeField] private Transform parentDoor;
 
-    public Animator doorAnim;
+    public float doorCloseOffset = -1.2f;
+    private Vector3 doorCloseVectorOffset;
+    public float step = 5f;
+    public bool moveDoor = false;
+
     public GameObject contextBox;
     public Text contextText;
 
@@ -24,12 +29,23 @@ public class Interactable : MonoBehaviour
     void Start()
     {
         contextBox.SetActive(false);
+        parentDoor = gameObject.transform.parent.gameObject.transform;
+
+        doorCloseVectorOffset = new Vector3(parentDoor.position.x, doorCloseOffset, parentDoor.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (moveDoor)
+        {
+            parentDoor.transform.position = Vector3.Lerp(transform.position, doorCloseVectorOffset, step * Time.deltaTime);
+
+            if (parentDoor.transform.position == doorCloseVectorOffset)
+            {
+                gameObject.SetActive(false);
+            }
+        }
     }
 
 
@@ -73,11 +89,11 @@ public class Interactable : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
         {
             PlayerController.instance.currentPoints -= pointCost;
-            doorAnim.SetBool("DoorOpened", true);
+            moveDoor = true;
 
             carve.UpdateNav();
 
-            gameObject.SetActive(false);
+            
             contextBox.SetActive(false);
         }
         else if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints < pointCost)

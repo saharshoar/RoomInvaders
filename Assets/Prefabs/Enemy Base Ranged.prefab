@@ -69,7 +69,7 @@ MonoBehaviour:
   shootRange: 5
   meleeRange: 1.5
   theRB: {fileID: 5120858214120631108}
-  moveSpeed: 2.5
+  moveSpeed: 3.5
   pointWorth: 100
   playerDistance: 0
   shouldShoot: 1
@@ -83,7 +83,7 @@ MonoBehaviour:
   damageDrop: {fileID: 3969634161395524893, guid: 055dc38e0c18ce04883c72a7d3c9b0f0,
     type: 3}
   goal: {fileID: 0}
-  notInLineOfSight: 0
+  inLineOfSight: 0
 --- !u!54 &5120858214120631108
 Rigidbody:
   m_ObjectHideFlags: 0

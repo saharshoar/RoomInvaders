@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5503179263728776909}
   - component: {fileID: 5503179263728776908}
   - component: {fileID: 5503179263728776911}
-  - component: {fileID: 5503179263728776910}
+  - component: {fileID: 574546369}
+  - component: {fileID: 574546375}
   m_Layer: 0
   m_Name: Door
   m_TagString: Door
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5503179263728777009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.75, z: 0.5}
+  m_LocalScale: {x: 2.5, y: 2, z: 0.5}
   m_Children:
   - {fileID: 5503179265078743980}
   m_Father: {fileID: 0}
@@ -95,25 +96,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &5503179263728776910
-Animator:
-  serializedVersion: 3
+--- !u!208 &574546369
+NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5503179263728777009}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 67036228fd0cfc2459d633800cbd829f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &574546375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503179263728777009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e045b1dcab7d5459ef3d80b6e981f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshObstacle: {fileID: 574546369}
 --- !u!1 &5503179265078743983
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +182,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c44dbf2b4afa524582d90a9d59b3029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorAnim: {fileID: 5503179263728776910}
+  isMaxHealthPerk: 0
+  isMoveSpeedPerk: 0
+  isIncreasedDamagePerk: 0
+  carve: {fileID: 574546375}
+  parentDoor: {fileID: 0}
+  doorCloseOffset: -1.2
+  step: 5
+  moveDoor: 0
   contextBox: {fileID: 0}
   contextText: {fileID: 0}
-  pointCost: 1000
+  pointCost: 0
