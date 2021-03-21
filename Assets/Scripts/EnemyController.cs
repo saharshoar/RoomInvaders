@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -10,10 +11,11 @@ public class EnemyController : MonoBehaviour
 
     public float playerRange = 10f;
     public float shootRange = 5f;
-    public float meleeRange = 1.5f;
+    public float meleeRange = 2f;
 
     public Rigidbody theRB;
-    public float moveSpeed = 2.5f;
+    public float moveSpeed = 5f;
+    private float defaultSpeed;
 
     public int pointWorth = 100;
 
@@ -32,64 +34,86 @@ public class EnemyController : MonoBehaviour
     public GameObject healthDrop;
     public GameObject damageDrop;
 
+    public Transform goal;
+    NavMeshAgent agent;
+    public bool inLineOfSight;
+
     // Start is called before the first frame update
     void Start()
     {
         dropChance = Random.Range(1, 101);
+
+        goal = PlayerController.instance.transform;
+
+        agent = GetComponent<NavMeshAgent>();
+        agent.destination = goal.position;
+
+        defaultSpeed = agent.speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerDistance = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
-
         if (!PlayerController.instance.hasDied)
         {
             MoveEnemy();
         }
     }
-
+            
     public void MoveEnemy()
     {
-        if (shouldShoot)
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, (PlayerController.instance.transform.position - transform.position), out hit))
         {
-            if (playerDistance < playerRange && playerDistance > shootRange)
+            if (hit.transform.tag == "Player")
             {
-                Vector3 playerDirection = PlayerController.instance.transform.position - transform.position;
-
-                theRB.velocity = playerDirection.normalized * moveSpeed;
-
+                inLineOfSight = true;
+                agent.speed = moveSpeed;
             }
-            else if (playerDistance <= shootRange && shouldShoot)
+            else
             {
-                theRB.velocity = Vector3.zero;
-
-                shotCounter -= Time.deltaTime;
-                if (shotCounter <= 0)
-                {
-                    Instantiate(bullet, firePoint.position, firePoint.rotation);
-                    shotCounter = fireRate;
-                }
+                inLineOfSight = false;
+                agent.speed = defaultSpeed;
             }
+        }
+
+        playerDistance = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
+
+        if (shouldShoot && playerDistance <= shootRange && inLineOfSight)
+        {
+            goal = gameObject.transform;
+            RangedAttack();
         }
         else
         {
-            if (playerDistance < playerRange)
-            {
-                Vector3 playerDirection = PlayerController.instance.transform.position - transform.position;
+            goal = PlayerController.instance.transform;
 
-                theRB.velocity = playerDirection.normalized * moveSpeed;
+            if (playerDistance < playerRange && !shouldShoot)
+                MeleeAttack();
+        }
 
-                meleeCounter -= Time.deltaTime;
+        agent.destination = goal.position;
+    }
 
-                if (playerDistance <= meleeRange && meleeCounter <= 0)
-                {
-                    PlayerController.instance.playerHealth.TakeDamage(damageDealt);
-                    meleeCounter = meleeRate;
-                    
-                }
+    public void RangedAttack()
+    {
+        shotCounter -= Time.deltaTime;
+        if (shotCounter <= 0)
+        {
+            Instantiate(bullet, firePoint.position, firePoint.rotation);
+            shotCounter = fireRate;
+        }
+    }
 
-            }
+    public void MeleeAttack()
+    {
+        meleeCounter -= Time.deltaTime;
+
+        if (playerDistance <= meleeRange && meleeCounter <= 0)
+        {
+            PlayerController.instance.playerHealth.TakeDamage(damageDealt);
+            meleeCounter = meleeRate;
         }
     }
 

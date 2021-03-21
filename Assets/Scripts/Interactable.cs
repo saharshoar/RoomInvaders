@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class Interactable : MonoBehaviour
 {
     [SerializeField] private bool isMaxHealthPerk = false;
     [SerializeField] private bool isMoveSpeedPerk = false;
     [SerializeField] private bool isIncreasedDamagePerk = false;
+    [SerializeField] private NavMeshCarve carve;
 
     public Animator doorAnim;
     public GameObject contextBox;
@@ -72,6 +74,8 @@ public class Interactable : MonoBehaviour
         {
             PlayerController.instance.currentPoints -= pointCost;
             doorAnim.SetBool("DoorOpened", true);
+
+            carve.UpdateNav();
 
             gameObject.SetActive(false);
             contextBox.SetActive(false);
