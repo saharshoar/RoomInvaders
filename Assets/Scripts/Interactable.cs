@@ -46,6 +46,13 @@ public class Interactable : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
+
+        if (gameObject.tag == "Power Door" && PowerSwitch.instance.powerOn)
+        {
+            moveDoor = true;
+            carve.UpdateNav();
+            contextBox.SetActive(false);
+        }
     }
 
 
@@ -60,6 +67,12 @@ public class Interactable : MonoBehaviour
         {
             InteractPerk();
         }
+
+        else if (other.tag == "Player" && gameObject.tag == "Power Door")
+        {
+            pointCost = 0;
+            PowerDoor();
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -67,6 +80,29 @@ public class Interactable : MonoBehaviour
         if (other.tag == "Player")
         {
             contextBox.SetActive(false);
+        }
+    }
+
+    private void PowerDoor()
+    {
+        contextBox.SetActive(true);
+
+        if (!hasPushedE)
+            contextText.text = "This door can only be opened by turning on the power.";
+        if (hasPushedE)
+        {
+            contextCounter -= Time.deltaTime;
+            if (contextCounter <= 0)
+            {
+                hasPushedE = false;
+                contextCounter = 0.5f;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.E) && !PowerSwitch.instance.powerOn)
+        {
+            hasPushedE = true;
+            contextText.text = "You have not activated the power yet!";
         }
     }
 
