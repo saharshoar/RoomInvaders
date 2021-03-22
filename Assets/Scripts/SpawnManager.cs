@@ -20,6 +20,9 @@ public class SpawnManager : MonoBehaviour
     public int enemyNumber = 0;
     private float roundCounter = 5f;
 
+    public Vector3 spawnPoint2;
+    public Transform spawnPointLoc2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -78,19 +81,51 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private Vector3 GenerateSpawnPoint()
+    private Vector3 GenerateSpawnPoint(int currentZone)
     {
-        float spawnPosX = Random.Range(-8f, 8f);
-        float spawnPosZ = Random.Range(-8f, 8f);
+        if (currentZone == 1)
+        {
+            float spawnPosX = Random.Range(-8f, 8f);
+            float spawnPosZ = Random.Range(-8f, 8f);
 
-        return new Vector3(spawnPosX, 0.25f, spawnPosZ);
+            return new Vector3(spawnPosX, 0.25f, spawnPosZ);
+        }
+        else if (currentZone == 2)
+        {
+            float spawnPosX = Random.Range(-4f, 4f);
+            float spawnPosZ = Random.Range(-4f, 4f);
+
+            int spawnRandomizer = Random.Range(1, 3);
+
+            switch (spawnRandomizer)
+            {
+                case 1:
+                    spawnPosX = Random.Range(-8f, 8f);
+                    spawnPosZ = Random.Range(-8f, 8f);
+                    spawnPoint2 = new Vector3(spawnPosX, 0.25f, spawnPosZ);
+                    break;
+                case 2:
+                    spawnPoint2 = new Vector3(spawnPointLoc2.position.x + spawnPosX, 0.25f, spawnPointLoc2.position.z + spawnPosZ);
+                    break;
+            }
+            
+            return spawnPoint2;
+        }
+        else
+        {
+            float spawnPosX = Random.Range(-8f, 8f);
+            float spawnPosZ = Random.Range(-8f, 8f);
+
+            return new Vector3(spawnPosX, 0.25f, spawnPosZ);
+        }
+
     }
 
     void SpawnEnemyWave(int enemiesToSpawn)
     {
         for (int i = 0; i < enemiesToSpawn; i++)
         {
-            Instantiate(enemyPrefab, GenerateSpawnPoint(), enemyPrefab.transform.rotation);
+            Instantiate(enemyPrefab, GenerateSpawnPoint(PlayerController.instance.playerZone), enemyPrefab.transform.rotation);
         }
     }
 
@@ -98,7 +133,7 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < enemiesToSpawn; i++)
         {
-            Instantiate(enemyRangedPrefab, GenerateSpawnPoint(), enemyRangedPrefab.transform.rotation);
+            Instantiate(enemyRangedPrefab, GenerateSpawnPoint(PlayerController.instance.playerZone), enemyRangedPrefab.transform.rotation);
         }
     }
 }
