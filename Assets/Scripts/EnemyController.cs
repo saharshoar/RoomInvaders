@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
 
     public float playerRange = 10f;
     public float shootRange = 5f;
+    private float shootRangeAI = 3f;
     public float meleeRange = 2f;
 
     public Rigidbody theRB;
@@ -98,8 +99,12 @@ public class EnemyController : MonoBehaviour
 
         if (shouldShoot && playerDistance <= shootRange && inLineOfSight)
         {
-            goal = gameObject.transform;
             RangedAttack();
+
+            if (playerDistance <= shootRangeAI)
+            {
+                goal = gameObject.transform;
+            }
         }
         else
         {

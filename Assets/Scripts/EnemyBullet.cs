@@ -32,9 +32,9 @@ public class EnemyBullet : MonoBehaviour
         if (other.tag == "Player")
         {
             player.playerHealth.TakeDamage(damageAmount);
+            Destroy(gameObject, 0.001f);
         }
-
-        if (other.tag != "Enemy")
+        else if (other.tag == "Untagged")
         {
             Destroy(gameObject, 0.001f);
         }

@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
     public Text pointsText;
     public Text roundText;
 
+    public int playerZone = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -111,7 +113,6 @@ public class PlayerController : MonoBehaviour
                     {
                         //Debug.Log("I'm hitting " + hit.transform.name);
                         Instantiate(bulletImpact, hit.point, transform.rotation);
-                        AudioController.instance.PlayGunshot();
 
                         if (hit.transform.tag == "Enemy")
                         {
@@ -119,9 +120,11 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                     else
+                    {
                         //Debug.Log("I'm hitting nothing");
+                    }
 
-                    
+                    AudioController.instance.PlayGunshot();
                     currentAmmo--;
 
                     //Shotgun animation

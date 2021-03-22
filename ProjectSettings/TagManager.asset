@@ -12,6 +12,8 @@ TagManager:
   - damage pickup
   - Power Switch
   - Power Door
+  - Zone 1
+  - Zone 2
   layers:
   - Default
   - TransparentFX
