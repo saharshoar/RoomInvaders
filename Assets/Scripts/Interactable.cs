@@ -25,6 +25,10 @@ public class Interactable : MonoBehaviour
     private bool hasPushedE = false;
     private float contextCounter = 0.5f;
 
+    private PlayerController player;
+
+    //to do : replace all PlayerController.instance areas of code with player variable above
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +36,8 @@ public class Interactable : MonoBehaviour
         parentDoor = gameObject.transform.parent.gameObject.transform;
 
         doorCloseVectorOffset = new Vector3(parentDoor.position.x, doorCloseOffset, parentDoor.position.z);
+
+        player = PlayerController.instance;
     }
 
     // Update is called once per frame
@@ -118,12 +124,15 @@ public class Interactable : MonoBehaviour
             if (contextCounter <= 0)
             {
                 hasPushedE = false;
+                contextText.text = "";
+                contextBox.SetActive(false);
                 contextCounter = 0.5f;
             }
         }
 
         if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
         {
+            
             PlayerController.instance.currentPoints -= pointCost;
             moveDoor = true;
 
@@ -132,9 +141,10 @@ public class Interactable : MonoBehaviour
             
             contextBox.SetActive(false);
         }
-        else if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints < pointCost)
+        else if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints < pointCost && !moveDoor)
         {
             hasPushedE = true;
+            contextBox.SetActive(true);
             contextText.text = "You don't have enough points to open this door!";
         }
     }
@@ -176,11 +186,15 @@ public class Interactable : MonoBehaviour
         {
             PlayerController.instance.playerHealth.maxHealth = 150;
             PlayerController.instance.playerHealth.AddHealth(150);
-            PlayerController.instance.playerHealth.ExpandHealthBar(); 
+            PlayerController.instance.playerHealth.ExpandHealthBar();
+            player.hasHealthPerk = true;
+            player.PerkUIUpdate(player.healthPerkVal);
         }
         if (isMoveSpeedPerk)
         {
             PlayerController.instance.moveSpeed = 10f;
+            player.hasSpeedPerk = true;
+            player.PerkUIUpdate(player.speedPerkVal);
         }
         if (isIncreasedDamagePerk)
         {
@@ -193,6 +207,10 @@ public class Interactable : MonoBehaviour
             {
                 PlayerController.instance.damageDealt = 5;
             }
+
+            player.hasDamagePerk = true;
+            player.PerkUIUpdate(player.damagePerkVal);
+
             AudioController.instance.IncreaseGunshot();
         }
 

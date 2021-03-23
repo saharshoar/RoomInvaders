@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
     public Animator shotGunUI;
     public Animator anim;
 
-    public int currentAmmo = 10;
+    public int currentAmmo = 50;
+    public int maxAmmo = 150;
+
     public int damageDealt = 1;
     public int tempDamageDealt = 1;
     public bool damagePickup = false;
@@ -48,6 +50,19 @@ public class PlayerController : MonoBehaviour
 
     public int playerZone = 1;
 
+    public int[] perks;
+    public int perkArrayLoc = 0;
+    public bool hasHealthPerk = false;
+    public bool hasSpeedPerk = false;
+    public bool hasDamagePerk = false;
+    public int healthPerkVal = 0;
+    public int speedPerkVal = 1;
+    public int damagePerkVal = 2;
+    public GameObject perkSlot1;
+    public GameObject perkSlot2;
+    public GameObject perkSlot3;
+    public Sprite[] perkSprites;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +72,10 @@ public class PlayerController : MonoBehaviour
         pointsText.text = currentPoints.ToString();
         pointsBox.SetActive(false);
         perkBox.SetActive(false);
+        perkSlot1.SetActive(false);
+        perkSlot2.SetActive(false);
+        perkSlot3.SetActive(false);
+
         roundBox.SetActive(true);
         ammoBox.SetActive(true);
     }
@@ -101,6 +120,7 @@ public class PlayerController : MonoBehaviour
             {
                 PowerUpCountdown();
             }
+
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -178,15 +198,6 @@ public class PlayerController : MonoBehaviour
         currentPoints -= points;
     }
 
-    IEnumerator PowerUpCountdownRoutine()
-    {
-        
-        yield return new WaitForSeconds(powerUpCounter);
-
-        currentlyPoweredUp = false;
-        damageDealt = tempDamageDealt;
-    }
-
     private void PowerUpCountdown()
     {
         powerUpCounter -= Time.deltaTime;
@@ -196,6 +207,44 @@ public class PlayerController : MonoBehaviour
             currentlyPoweredUp = false;
             damageDealt = tempDamageDealt;
             powerUpCounter = 15f;
+        }
+    }
+
+    public void PerkUIUpdate(int perkReceived)
+    {
+        if (hasHealthPerk && perkReceived == healthPerkVal)
+        {
+            perks[perkArrayLoc] = healthPerkVal;
+            perkArrayLoc++;
+        }
+
+        if (hasSpeedPerk && perkReceived == speedPerkVal)
+        {
+            perks[perkArrayLoc] = speedPerkVal;
+            perkArrayLoc++;
+        }
+
+        if (hasDamagePerk && perkReceived == damagePerkVal)
+        {
+            perks[perkArrayLoc] = damagePerkVal;
+            perkArrayLoc++;
+        }
+
+        if (perkArrayLoc == 1)
+        {
+            perkBox.SetActive(true);
+            perkSlot1.SetActive(true);
+            perkSlot1.GetComponent<Image>().sprite = perkSprites[perks[0]];
+        }
+        else if (perkArrayLoc == 2)
+        {
+            perkSlot2.SetActive(true);
+            perkSlot2.GetComponent<Image>().sprite = perkSprites[perks[1]];
+        }
+        else if (perkArrayLoc == 3)
+        {
+            perkSlot3.SetActive(true);
+            perkSlot3.GetComponent<Image>().sprite = perkSprites[perks[2]];
         }
     }
 }

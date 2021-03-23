@@ -25,6 +25,12 @@ public class PickUps : MonoBehaviour
         if (other.tag == "Player" && gameObject.tag == "ammo pickup")
         {
             PlayerController.instance.currentAmmo += pickupAmount;
+
+            if (PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo)
+            {
+                PlayerController.instance.currentAmmo = PlayerController.instance.maxAmmo;
+            }
+
             AudioController.instance.PlayAmmoPickup();
 
             Destroy(gameObject, 0.01f);

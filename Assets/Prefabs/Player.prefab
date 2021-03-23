@@ -87,15 +87,37 @@ MonoBehaviour:
   shotGunUI: {fileID: 0}
   anim: {fileID: 1301959188}
   currentAmmo: 10
+  maxAmmo: 150
   damageDealt: 1
+  tempDamageDealt: 1
+  damagePickup: 0
+  currentlyPoweredUp: 0
+  powerUpCounter: 30
   currentPoints: 0
   totalPoints: 0
   deadScreen: {fileID: 0}
   pointsBox: {fileID: 0}
   perkBox: {fileID: 0}
+  ammoBox: {fileID: 0}
+  roundBox: {fileID: 0}
+  hasDied: 0
+  totalPointsText: {fileID: 0}
   ammoText: {fileID: 0}
   pointsText: {fileID: 0}
   roundText: {fileID: 0}
+  playerZone: 1
+  perks: 000000000000000000000000
+  perkArrayLoc: 0
+  hasHealthPerk: 0
+  hasSpeedPerk: 0
+  hasDamagePerk: 0
+  healthPerkVal: 1
+  speedPerkVal: 2
+  damagePerkVal: 3
+  perkSlot1: {fileID: 0}
+  perkSlot2: {fileID: 0}
+  perkSlot3: {fileID: 0}
+  perkSprites: []
 --- !u!114 &83462480
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -59,17 +59,17 @@ public class EnemyController : MonoBehaviour
         {
             MoveEnemy();
 
-            if (SpawnManager.instance.roundNumber == 5)
+            if (SpawnManager.instance.roundNumber >= 5 && SpawnManager.instance.roundNumber < 10)
             {
                 moveSpeed = 5f;
                 defaultSpeed = 4f;
             }
-            else if (SpawnManager.instance.roundNumber == 10)
+            else if (SpawnManager.instance.roundNumber == 10 && SpawnManager.instance.roundNumber < 25)
             {
                 moveSpeed = 6.5f;
                 defaultSpeed = 5f;
             }
-            else if (SpawnManager.instance.roundNumber == 25)
+            else if (SpawnManager.instance.roundNumber >= 25)
             {
                 moveSpeed = 9f;
                 defaultSpeed = 7f;
@@ -156,6 +156,15 @@ public class EnemyController : MonoBehaviour
 
     private void DropItem()
     {
+        if (PlayerController.instance.currentAmmo <= 20)
+        {
+            dropChance = Random.Range(30, 75);
+        }
+        else if (PlayerController.instance.playerHealth.currentHealth <= 25)
+        {
+            dropChance = Random.Range(60, 85);
+        }
+
         if (dropChance >= 50 && dropChance <= 74)
         {
             Instantiate(ammoDrop, transform.position, transform.rotation);
