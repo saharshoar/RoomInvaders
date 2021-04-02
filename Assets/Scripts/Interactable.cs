@@ -45,7 +45,7 @@ public class Interactable : MonoBehaviour
     {
         if (moveDoor)
         {
-            parentDoor.transform.position = Vector3.Lerp(transform.position, doorCloseVectorOffset, step * Time.deltaTime);
+            parentDoor.transform.position = Vector3.Lerp(parentDoor.transform.position, doorCloseVectorOffset, step * Time.deltaTime);
 
             if (parentDoor.transform.position == doorCloseVectorOffset)
             {
