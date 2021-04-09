@@ -23,6 +23,9 @@ public class SpawnManager : MonoBehaviour
     public Vector3 spawnPoint2;
     public Transform spawnPointLoc2;
 
+    private bool countDown = false;
+    private float startTimer = 5f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,21 +46,27 @@ public class SpawnManager : MonoBehaviour
 
     }
 
-    IEnumerator WaitForRound()
-    {
-        RoundStartBox.SetActive(true);
-        RoundStartText.text = "Round " + (roundNumber + 1).ToString() + " is about to begin!";
-        
-        yield return new WaitForSeconds(5);
-
-        RoundStartBox.SetActive(false);
-    }
-
     private void StartRound()
     {
         if (enemyCount == 0)
         {
-            StartCoroutine(WaitForRound());
+            countDown = true;
+
+            if (countDown)
+            {
+                RoundStartBox.SetActive(true);
+                RoundStartText.text = "Round " + (roundNumber + 1).ToString() + " is about to begin!";
+
+                startTimer -= Time.deltaTime;
+
+                if (startTimer <= 0)
+                {
+                    RoundStartBox.SetActive(false);
+                    countDown = false;
+                    startTimer = 5f;
+                }
+            }
+
             roundCounter -= Time.deltaTime;
 
             if (roundCounter <= 0)
