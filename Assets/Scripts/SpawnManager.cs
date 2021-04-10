@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
     private float roundCounter = 5f;
 
     public Vector3 spawnPoint2;
-    public Transform spawnPointLoc2;
+    public List<Transform> spawnPointLocs;
 
     private bool countDown = false;
     private float startTimer = 5f;
@@ -92,29 +92,24 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 GenerateSpawnPoint(int currentZone)
     {
+        float spawnPosX = Random.Range(-4f, 4f);
+        float spawnPosZ = Random.Range(-4f, 4f);
+
         if (currentZone == 1)
         {
-            float spawnPosX = Random.Range(-8f, 8f);
-            float spawnPosZ = Random.Range(-8f, 8f);
-
-            return new Vector3(spawnPosX, 0.25f, spawnPosZ);
+            return new Vector3(spawnPointLocs[0].position.x + spawnPosX, 0.25f, spawnPointLocs[0].position.z + spawnPosZ);
         }
         else if (currentZone == 2)
         {
-            float spawnPosX = Random.Range(-4f, 4f);
-            float spawnPosZ = Random.Range(-4f, 4f);
-
             int spawnRandomizer = Random.Range(1, 3);
 
             switch (spawnRandomizer)
             {
                 case 1:
-                    spawnPosX = Random.Range(-8f, 8f);
-                    spawnPosZ = Random.Range(-8f, 8f);
-                    spawnPoint2 = new Vector3(spawnPosX, 0.25f, spawnPosZ);
+                    spawnPoint2 = new Vector3(spawnPointLocs[0].position.x + spawnPosX, 0.25f, spawnPointLocs[0].position.z + spawnPosZ);
                     break;
                 case 2:
-                    spawnPoint2 = new Vector3(spawnPointLoc2.position.x + spawnPosX, 0.25f, spawnPointLoc2.position.z + spawnPosZ);
+                    spawnPoint2 = new Vector3(spawnPointLocs[1].position.x + spawnPosX, 0.25f, spawnPointLocs[1].position.z + spawnPosZ);
                     break;
             }
             
@@ -122,10 +117,7 @@ public class SpawnManager : MonoBehaviour
         }
         else
         {
-            float spawnPosX = Random.Range(-8f, 8f);
-            float spawnPosZ = Random.Range(-8f, 8f);
-
-            return new Vector3(spawnPosX, 0.25f, spawnPosZ);
+            return new Vector3(spawnPointLocs[0].position.x + spawnPosX, 0.25f, spawnPointLocs[0].position.z + spawnPosZ);
         }
 
     }
