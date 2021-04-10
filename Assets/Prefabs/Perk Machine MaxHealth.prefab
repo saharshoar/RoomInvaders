@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
         type: 3}
@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 7142318921514761224, guid: b38f1de45028ebb4685cba141967d078,
         type: 3}
@@ -71,6 +71,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Perk Machine MaxHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761715, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318921514761715, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814381, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142318922345814381, guid: b38f1de45028ebb4685cba141967d078,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7142318922345814383, guid: b38f1de45028ebb4685cba141967d078,
         type: 3}
