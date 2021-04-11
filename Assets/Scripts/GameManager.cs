@@ -13,12 +13,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || PlayerController.instance.hasDied)
+        if (PlayerController.instance.hasDied || !PlayerController.instance.canMove)
         {
             UnlockCursor();
         }
 
-        if (Input.GetMouseButton(0) && !PlayerController.instance.hasDied)
+        if (PlayerController.instance.canMove)
         {
             LockCursor();
         }

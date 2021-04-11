@@ -233,19 +233,19 @@ public class PlayerController : MonoBehaviour
 
         if (perkArrayLoc == 1)
         {
+            perkSlot1.GetComponent<Image>().sprite = perkSprites[perks[0]];
             perkBox.SetActive(true);
             perkSlot1.SetActive(true);
-            perkSlot1.GetComponent<Image>().sprite = perkSprites[perks[0]];
         }
         else if (perkArrayLoc == 2)
         {
-            perkSlot2.SetActive(true);
             perkSlot2.GetComponent<Image>().sprite = perkSprites[perks[1]];
+            perkSlot2.SetActive(true);
         }
         else if (perkArrayLoc == 3)
         {
-            perkSlot3.SetActive(true);
             perkSlot3.GetComponent<Image>().sprite = perkSprites[perks[2]];
+            perkSlot3.SetActive(true);
         }
     }
 }

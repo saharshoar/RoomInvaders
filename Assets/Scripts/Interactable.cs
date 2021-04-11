@@ -36,8 +36,6 @@ public class Interactable : MonoBehaviour
         parentDoor = gameObject.transform.parent.gameObject.transform;
 
         doorCloseVectorOffset = new Vector3(parentDoor.position.x, doorCloseOffset, parentDoor.position.z);
-
-        player = PlayerController.instance;
     }
 
     // Update is called once per frame
@@ -187,14 +185,14 @@ public class Interactable : MonoBehaviour
             PlayerController.instance.playerHealth.maxHealth = 150;
             PlayerController.instance.playerHealth.AddHealth(150);
             PlayerController.instance.playerHealth.ExpandHealthBar();
-            player.hasHealthPerk = true;
-            player.PerkUIUpdate(player.healthPerkVal);
+            PlayerController.instance.hasHealthPerk = true;
+            PlayerController.instance.PerkUIUpdate(PlayerController.instance.healthPerkVal);
         }
         if (isMoveSpeedPerk)
         {
             PlayerController.instance.moveSpeed = 10f;
-            player.hasSpeedPerk = true;
-            player.PerkUIUpdate(player.speedPerkVal);
+            PlayerController.instance.hasSpeedPerk = true;
+            PlayerController.instance.PerkUIUpdate(PlayerController.instance.speedPerkVal);
         }
         if (isIncreasedDamagePerk)
         {
@@ -208,8 +206,8 @@ public class Interactable : MonoBehaviour
                 PlayerController.instance.damageDealt = 5;
             }
 
-            player.hasDamagePerk = true;
-            player.PerkUIUpdate(player.damagePerkVal);
+            PlayerController.instance.hasDamagePerk = true;
+            PlayerController.instance.PerkUIUpdate(PlayerController.instance.damagePerkVal);
 
             AudioController.instance.IncreaseGunshot();
         }
