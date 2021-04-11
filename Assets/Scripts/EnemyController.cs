@@ -10,9 +10,9 @@ public class EnemyController : MonoBehaviour
     public GameObject explosion;
 
     public float playerRange = 10f;
-    public float shootRange = 5f;
-    private float shootRangeAI = 3f;
-    public float meleeRange = 2f;
+    public float shootRange = 8f;
+    private float shootRangeAI = 7.5f;
+    public float meleeRange = 1.5f;
 
     public Rigidbody theRB;
     public float moveSpeed = 4f;
