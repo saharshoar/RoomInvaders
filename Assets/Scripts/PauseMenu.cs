@@ -42,6 +42,13 @@ public class PauseMenu : MonoBehaviour
         PlayerController.instance.canMove = false;
     }
 
+    public void NewGame()
+    {
+        Time.timeScale = 1f;
+        UnlockCursor();
+        SceneManager.LoadScene(1);
+    }
+
     public void LoadMenu()
     {
         //Debug.Log("Loading menu...");
