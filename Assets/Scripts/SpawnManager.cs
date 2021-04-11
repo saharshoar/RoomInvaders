@@ -72,10 +72,10 @@ public class SpawnManager : MonoBehaviour
             if (roundCounter <= 0)
             {
                 roundNumber++;
-                enemyNumber++;
-                if (enemyNumber >= 50)
+                enemyNumber += 3;
+                if (enemyNumber >= 75)
                 {
-                    enemyNumber = 50;
+                    enemyNumber = 75;
                 }
                 SpawnEnemyWave(enemyNumber);
                 roundText.text = "Round: " + roundNumber.ToString();

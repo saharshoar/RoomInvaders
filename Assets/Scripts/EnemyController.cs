@@ -39,6 +39,9 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent agent;
     public bool inLineOfSight;
 
+    private bool newRound = true;
+    private float newRoundCounter = 0.05f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,21 +62,82 @@ public class EnemyController : MonoBehaviour
         {
             MoveEnemy();
 
-            if (SpawnManager.instance.roundNumber >= 5 && SpawnManager.instance.roundNumber < 10)
+            if (SpawnManager.instance.enemyCount <= 0)
             {
-                moveSpeed = 5f;
-                defaultSpeed = 4f;
+                newRound = true;
             }
-            else if (SpawnManager.instance.roundNumber == 10 && SpawnManager.instance.roundNumber < 25)
+            if (newRound)
             {
-                moveSpeed = 6.5f;
+                UpdateEnemyDifficulty();
+
+                newRoundCounter -= Time.deltaTime;
+
+                if (newRoundCounter <= 0)
+                {
+                    newRound = false;
+                    newRoundCounter = 0.05f;
+                }
+            }
+        }
+    }
+
+    private void UpdateEnemyDifficulty()
+    {
+        switch (SpawnManager.instance.roundNumber)
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+                moveSpeed = 1.5f;
                 defaultSpeed = 5f;
-            }
-            else if (SpawnManager.instance.roundNumber >= 25)
-            {
-                moveSpeed = 9f;
-                defaultSpeed = 7f;
-            }
+                health = 1;
+                damageDealt = 10;
+                break;
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+                moveSpeed = 3f;
+                defaultSpeed = 10f;
+                health = 3;
+                damageDealt = 15;
+                break;
+            case 8:
+            case 9:
+            case 10:
+                moveSpeed = 5f;
+                defaultSpeed = 12f;
+                health = 5;
+                damageDealt = 15;
+                break;
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+                moveSpeed = 8f;
+                defaultSpeed = 15f;
+                health = 6;
+                damageDealt = 20;
+                break;
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+                moveSpeed = 12f;
+                defaultSpeed = 15f;
+                health = 8;
+                damageDealt = 20;
+                break;
+            case 20:
+            default:
+                moveSpeed = 15f;
+                defaultSpeed = 20f;
+                health = 10;
+                damageDealt = 25;
+                break;
+                
         }
     }
             
@@ -140,7 +204,7 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health = health - damage;
+        health -= damage;
         AudioController.instance.PlayEnemyShot();
 
         if (health <= 0)
