@@ -54,7 +54,14 @@ MonoBehaviour:
   enemyCount: 0
   roundNumber: 0
   enemyNumber: 0
-  spawnPoint2: {x: 0, y: 0, z: 0}
+  spawnPoint: {x: 0, y: 0, z: 0}
   spawnPointLocs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

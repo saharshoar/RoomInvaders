@@ -193,6 +193,7 @@ MonoBehaviour:
   ammoBox: {fileID: 0}
   roundBox: {fileID: 0}
   hasDied: 0
+  canMove: 1
   totalPointsText: {fileID: 0}
   ammoText: {fileID: 0}
   pointsText: {fileID: 0}
