@@ -24,9 +24,39 @@ public class ZoneFinder : MonoBehaviour
             zone = 1;
             PlayerController.instance.playerZone = zone;
         }
-        if (other.tag == "Player" && gameObject.tag == "Zone 2")
+        else if (other.tag == "Player" && gameObject.tag == "Zone 2")
         {
             zone = 2;
+            PlayerController.instance.playerZone = zone;
+        }
+        else if (other.tag == "Player" && gameObject.tag == "Zone 3")
+        {
+            zone = 3;
+            PlayerController.instance.playerZone = zone;
+        }
+        else if (other.tag == "Player" && gameObject.tag == "Zone 4")
+        {
+            zone = 4;
+            PlayerController.instance.playerZone = zone;
+        }
+        else if (other.tag == "Player" && gameObject.tag == "Zone 5")
+        {
+            zone = 5;
+            PlayerController.instance.playerZone = zone;
+        }
+        else if (other.tag == "Player" && gameObject.tag == "Zone 6")
+        {
+            zone = 6;
+            PlayerController.instance.playerZone = zone;
+        }
+        else if (other.tag == "Player" && gameObject.tag == "Zone 7")
+        {
+            zone = 7;
+            PlayerController.instance.playerZone = zone;
+        }
+        else if (other.tag == "Player" && gameObject.tag == "Zone 8")
+        {
+            zone = 8;
             PlayerController.instance.playerZone = zone;
         }
 

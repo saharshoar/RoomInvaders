@@ -29,13 +29,15 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        PlayerController.instance.canMove = true;
     }
 
     void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true; 
+        GameIsPaused = true;
+        PlayerController.instance.canMove = false;
     }
 
     public void LoadMenu()

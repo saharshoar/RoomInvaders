@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public GameObject ammoBox;
     public GameObject roundBox;
     public bool hasDied = false;
+    public bool canMove = true;
 
     public Text totalPointsText;
     public Text ammoText;
@@ -83,7 +84,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!hasDied)
+        if (!hasDied && canMove)
         {
             // Player movement
             moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
