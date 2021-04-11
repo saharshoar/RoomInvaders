@@ -12,14 +12,16 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !PlayerController.instance.hasDied)
         {
             if (GameIsPaused)
             {
                 Resume();
+                LockCursor();
             } else
             {
                 Pause();
+                UnlockCursor();
             }
         }
     }
@@ -44,6 +46,7 @@ public class PauseMenu : MonoBehaviour
     {
         //Debug.Log("Loading menu...");
         Time.timeScale = 1f;
+        UnlockCursor();
         SceneManager.LoadScene("Menu");
     }
 
@@ -53,5 +56,15 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
+    private void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 }

@@ -59,6 +59,11 @@ public class ZoneFinder : MonoBehaviour
             zone = 8;
             PlayerController.instance.playerZone = zone;
         }
+        else if (other.tag == "Player" && gameObject.tag == "Zone 9")
+        {
+            zone = 9;
+            PlayerController.instance.playerZone = zone;
+        }
 
     }
 }

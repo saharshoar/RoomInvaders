@@ -97,27 +97,7 @@ public class SpawnManager : MonoBehaviour
 
         if (currentZone == 1)
         {
-            return new Vector3(spawnPointLocs[0].position.x + spawnPosX, 0.25f, spawnPointLocs[0].position.z + spawnPosZ);
-        }
-        else if (currentZone == 2)
-        {
-            int spawnRandomizer = Random.Range(1, 3);
-
-            switch (spawnRandomizer)
-            {
-                case 1:
-                    spawnPoint = new Vector3(spawnPointLocs[0].position.x + spawnPosX, 0.25f, spawnPointLocs[0].position.z + spawnPosZ);
-                    break;
-                case 2:
-                    spawnPoint = new Vector3(spawnPointLocs[1].position.x + spawnPosX, 0.25f, spawnPointLocs[1].position.z + spawnPosZ);
-                    break;
-            }
-            
-            return spawnPoint;
-        }
-        else if (currentZone == 3)
-        {
-            int spawnRandomizer = Random.Range(1, 4);
+            int spawnRandomizer = Random.Range(1, 5);
 
             switch (spawnRandomizer)
             {
@@ -128,7 +108,45 @@ public class SpawnManager : MonoBehaviour
                     spawnPoint = new Vector3(spawnPointLocs[1].position.x + spawnPosX, 0.25f, spawnPointLocs[1].position.z + spawnPosZ);
                     break;
                 case 3:
+                    spawnPoint = new Vector3(spawnPointLocs[4].position.x + spawnPosX, 0.25f, spawnPointLocs[4].position.z + spawnPosZ);
+                    break;
+                case 4:
+                    spawnPoint = new Vector3(spawnPointLocs[5].position.x + spawnPosX, 0.25f, spawnPointLocs[5].position.z + spawnPosZ);
+                    break;
+            }
+
+            return spawnPoint;
+        }
+        else if (currentZone == 2)
+        {
+            int spawnRandomizer = Random.Range(1, 4);
+
+            switch (spawnRandomizer)
+            {
+                case 1:
+                    spawnPoint = new Vector3(spawnPointLocs[0].position.x + spawnPosX, 0.25f, spawnPointLocs[0].position.z + spawnPosZ);
+                    break;
+                case 2:
                     spawnPoint = new Vector3(spawnPointLocs[2].position.x + spawnPosX, 0.25f, spawnPointLocs[2].position.z + spawnPosZ);
+                    break;
+                case 3:
+                    spawnPoint = new Vector3(spawnPointLocs[8].position.x + spawnPosX, 0.25f, spawnPointLocs[8].position.z + spawnPosZ);
+                    break;
+            }
+            
+            return spawnPoint;
+        }
+        else if (currentZone == 3)
+        {
+            int spawnRandomizer = Random.Range(1, 3);
+
+            switch (spawnRandomizer)
+            {
+                case 1:
+                    spawnPoint = new Vector3(spawnPointLocs[1].position.x + spawnPosX, 0.25f, spawnPointLocs[1].position.z + spawnPosZ);
+                    break;
+                case 2:
+                    spawnPoint = new Vector3(spawnPointLocs[3].position.x + spawnPosX, 0.25f, spawnPointLocs[3].position.z + spawnPosZ);
                     break;
             }
 
@@ -136,15 +154,18 @@ public class SpawnManager : MonoBehaviour
         }
         else if (currentZone == 4)
         {
-            int spawnRandomizer = Random.Range(1, 3);
+            int spawnRandomizer = Random.Range(1, 4);
 
             switch (spawnRandomizer)
             {
                 case 1:
-                    spawnPoint = new Vector3(spawnPointLocs[0].position.x + spawnPosX, 0.25f, spawnPointLocs[0].position.z + spawnPosZ);
+                    spawnPoint = new Vector3(spawnPointLocs[2].position.x + spawnPosX, 0.25f, spawnPointLocs[2].position.z + spawnPosZ);
                     break;
                 case 2:
-                    spawnPoint = new Vector3(spawnPointLocs[1].position.x + spawnPosX, 0.25f, spawnPointLocs[1].position.z + spawnPosZ);
+                    spawnPoint = new Vector3(spawnPointLocs[4].position.x + spawnPosX, 0.25f, spawnPointLocs[4].position.z + spawnPosZ);
+                    break;
+                case 3:
+                    spawnPoint = new Vector3(spawnPointLocs[8].position.x + spawnPosX, 0.25f, spawnPointLocs[8].position.z + spawnPosZ);
                     break;
             }
 
@@ -152,7 +173,7 @@ public class SpawnManager : MonoBehaviour
         }
         else if (currentZone == 5)
         {
-            int spawnRandomizer = Random.Range(1, 3);
+            int spawnRandomizer = Random.Range(1, 4);
 
             switch (spawnRandomizer)
             {
@@ -160,7 +181,10 @@ public class SpawnManager : MonoBehaviour
                     spawnPoint = new Vector3(spawnPointLocs[0].position.x + spawnPosX, 0.25f, spawnPointLocs[0].position.z + spawnPosZ);
                     break;
                 case 2:
-                    spawnPoint = new Vector3(spawnPointLocs[1].position.x + spawnPosX, 0.25f, spawnPointLocs[1].position.z + spawnPosZ);
+                    spawnPoint = new Vector3(spawnPointLocs[3].position.x + spawnPosX, 0.25f, spawnPointLocs[3].position.z + spawnPosZ);
+                    break;
+                case 3:
+                    spawnPoint = new Vector3(spawnPointLocs[7].position.x + spawnPosX, 0.25f, spawnPointLocs[7].position.z + spawnPosZ);
                     break;
             }
 
@@ -176,7 +200,7 @@ public class SpawnManager : MonoBehaviour
                     spawnPoint = new Vector3(spawnPointLocs[0].position.x + spawnPosX, 0.25f, spawnPointLocs[0].position.z + spawnPosZ);
                     break;
                 case 2:
-                    spawnPoint = new Vector3(spawnPointLocs[1].position.x + spawnPosX, 0.25f, spawnPointLocs[1].position.z + spawnPosZ);
+                    spawnPoint = new Vector3(spawnPointLocs[6].position.x + spawnPosX, 0.25f, spawnPointLocs[6].position.z + spawnPosZ);
                     break;
             }
 
@@ -189,10 +213,10 @@ public class SpawnManager : MonoBehaviour
             switch (spawnRandomizer)
             {
                 case 1:
-                    spawnPoint = new Vector3(spawnPointLocs[0].position.x + spawnPosX, 0.25f, spawnPointLocs[0].position.z + spawnPosZ);
+                    spawnPoint = new Vector3(spawnPointLocs[5].position.x + spawnPosX, 0.25f, spawnPointLocs[5].position.z + spawnPosZ);
                     break;
                 case 2:
-                    spawnPoint = new Vector3(spawnPointLocs[1].position.x + spawnPosX, 0.25f, spawnPointLocs[1].position.z + spawnPosZ);
+                    spawnPoint = new Vector3(spawnPointLocs[7].position.x + spawnPosX, 0.25f, spawnPointLocs[7].position.z + spawnPosZ);
                     break;
             }
 
@@ -205,10 +229,29 @@ public class SpawnManager : MonoBehaviour
             switch (spawnRandomizer)
             {
                 case 1:
-                    spawnPoint = new Vector3(spawnPointLocs[0].position.x + spawnPosX, 0.25f, spawnPointLocs[0].position.z + spawnPosZ);
+                    spawnPoint = new Vector3(spawnPointLocs[4].position.x + spawnPosX, 0.25f, spawnPointLocs[4].position.z + spawnPosZ);
                     break;
                 case 2:
+                    spawnPoint = new Vector3(spawnPointLocs[6].position.x + spawnPosX, 0.25f, spawnPointLocs[6].position.z + spawnPosZ);
+                    break;
+            }
+
+            return spawnPoint;
+        }
+        else if (currentZone == 9)
+        {
+            int spawnRandomizer = Random.Range(1, 4);
+
+            switch (spawnRandomizer)
+            {
+                case 1:
                     spawnPoint = new Vector3(spawnPointLocs[1].position.x + spawnPosX, 0.25f, spawnPointLocs[1].position.z + spawnPosZ);
+                    break;
+                case 2:
+                    spawnPoint = new Vector3(spawnPointLocs[2].position.x + spawnPosX, 0.25f, spawnPointLocs[2].position.z + spawnPosZ);
+                    break;
+                case 3:
+                    spawnPoint = new Vector3(spawnPointLocs[3].position.x + spawnPosX, 0.25f, spawnPointLocs[3].position.z + spawnPosZ);
                     break;
             }
 

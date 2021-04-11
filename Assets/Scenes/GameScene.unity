@@ -937,6 +937,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106341661}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &116828409 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5071151237725665194, guid: 36cddca54519bc849a3b09e5eb900880,
+    type: 3}
+  m_PrefabInstance: {fileID: 919435844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &122579427
 GameObject:
   m_ObjectHideFlags: 0
@@ -3653,7 +3659,7 @@ PrefabInstance:
     - target: {fileID: 9146313493021248312, guid: 074fa879d884d3b4a9824f154f5c6228,
         type: 3}
       propertyPath: spawnPointLocs.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9146313493021248312, guid: 074fa879d884d3b4a9824f154f5c6228,
         type: 3}
@@ -3695,6 +3701,11 @@ PrefabInstance:
       propertyPath: spawnPointLocs.Array.data[7]
       value: 
       objectReference: {fileID: 919435846}
+    - target: {fileID: 9146313493021248312, guid: 074fa879d884d3b4a9824f154f5c6228,
+        type: 3}
+      propertyPath: spawnPointLocs.Array.data[8]
+      value: 
+      objectReference: {fileID: 116828409}
     - target: {fileID: 9146313493021248313, guid: 074fa879d884d3b4a9824f154f5c6228,
         type: 3}
       propertyPath: m_Name
@@ -9636,6 +9647,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zones
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846628865753122941, guid: 36cddca54519bc849a3b09e5eb900880,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36cddca54519bc849a3b09e5eb900880, type: 3}
