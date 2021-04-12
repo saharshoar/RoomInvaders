@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     public float playerDistance;
 
     public bool shouldShoot;
-    public float fireRate = 0.5f;
+    public float fireRate = 1f;
     private float shotCounter = 2f;
     public float meleeCounter = 1f;
     private float meleeRate = 1f;
@@ -98,7 +98,7 @@ public class EnemyController : MonoBehaviour
             case 5:
             case 6:
             case 7:
-                moveSpeed = 3f;
+                moveSpeed = 2f;
                 defaultSpeed = 10f;
                 health = 3;
                 damageDealt = 15;
@@ -106,7 +106,7 @@ public class EnemyController : MonoBehaviour
             case 8:
             case 9:
             case 10:
-                moveSpeed = 5f;
+                moveSpeed = 3.5f;
                 defaultSpeed = 12f;
                 health = 5;
                 damageDealt = 15;
@@ -116,7 +116,7 @@ public class EnemyController : MonoBehaviour
             case 13:
             case 14:
             case 15:
-                moveSpeed = 8f;
+                moveSpeed = 6f;
                 defaultSpeed = 15f;
                 health = 6;
                 damageDealt = 20;
@@ -125,14 +125,14 @@ public class EnemyController : MonoBehaviour
             case 17:
             case 18:
             case 19:
-                moveSpeed = 12f;
+                moveSpeed = 9f;
                 defaultSpeed = 15f;
                 health = 8;
                 damageDealt = 20;
                 break;
             case 20:
             default:
-                moveSpeed = 15f;
+                moveSpeed = 12f;
                 defaultSpeed = 20f;
                 health = 10;
                 damageDealt = 25;

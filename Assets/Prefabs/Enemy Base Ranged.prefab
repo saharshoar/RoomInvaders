@@ -73,7 +73,7 @@ MonoBehaviour:
   pointWorth: 100
   playerDistance: 0
   shouldShoot: 1
-  fireRate: 0.5
+  fireRate: 1
   meleeCounter: 1
   bullet: {fileID: 6484259196493607677, guid: d634c134c38f20a40bbd40b8a997f295, type: 3}
   firePoint: {fileID: 5120858214782045098}
@@ -109,7 +109,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5120858214120631112}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.25
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
