@@ -139,9 +139,10 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
+        if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost && !hasPushedE)
         {
             contextBox.SetActive(false);
+            hasPushedE = true;
             PlayerController.instance.currentPoints -= pointCost;
             moveDoor = true;
 
@@ -172,7 +173,8 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost && !(PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo))
+        if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost 
+            && !(PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo && !hasPushedE))
         {
             PlayerController.instance.currentPoints -= pointCost;
             PlayerController.instance.currentAmmo += PlayerController.instance.maxAmmo / 2;
