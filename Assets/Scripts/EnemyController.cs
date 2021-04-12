@@ -229,11 +229,11 @@ public class EnemyController : MonoBehaviour
             dropChance = Random.Range(60, 85);
         }
 
-        if (dropChance >= 50 && dropChance <= 74)
+        if (dropChance >= 70 && dropChance <= 74)
         {
             Instantiate(ammoDrop, transform.position, transform.rotation);
         }
-        else if (dropChance >= 75 && dropChance <= 99)
+        else if (dropChance >= 75 && dropChance <= 80)
         {
             Instantiate(healthDrop, transform.position, transform.rotation);
         }
@@ -242,7 +242,7 @@ public class EnemyController : MonoBehaviour
             Instantiate(ammoDrop, transform.position, transform.rotation);
             Instantiate(healthDrop, transform.position, transform.rotation);
         }
-        else if (dropChance <= 20)
+        else if (dropChance <= 10)
         {
             Instantiate(damageDrop, transform.position, transform.rotation);
         }
