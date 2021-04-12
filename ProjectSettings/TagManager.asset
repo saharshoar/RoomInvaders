@@ -21,6 +21,7 @@ TagManager:
   - Zone 7
   - Zone 8
   - Zone 9
+  - Ammo Buy
   layers:
   - Default
   - TransparentFX

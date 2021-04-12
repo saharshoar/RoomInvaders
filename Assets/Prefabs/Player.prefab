@@ -214,6 +214,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5528d9a9c4c19c4468e54a9e541ea264, type: 3}
   - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 21300000, guid: 3d8f2ce5b298dcb42b9788c300a9a2e7, type: 3}
+  shotGunImage: {fileID: 0}
 --- !u!114 &83462480
 MonoBehaviour:
   m_ObjectHideFlags: 0

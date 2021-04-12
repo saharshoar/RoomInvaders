@@ -21,7 +21,7 @@ public class Interactable : MonoBehaviour
     public int pointCost = 1000;
 
     private bool hasPushedE = false;
-    private float contextCounter = 0.5f;
+    private float contextCounter = 1f;
 
     public GameObject rightDoor;
     public GameObject leftDoor;
@@ -83,6 +83,11 @@ public class Interactable : MonoBehaviour
             pointCost = 0;
             PowerDoor();
         }
+
+        if (other.tag == "Player" && gameObject.tag == "Ammo Buy")
+        {
+            AmmoBuy();
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -134,7 +139,7 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
+        if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
         {
             contextBox.SetActive(false);
             PlayerController.instance.currentPoints -= pointCost;
@@ -148,6 +153,46 @@ public class Interactable : MonoBehaviour
             hasPushedE = true;
             contextBox.SetActive(true);
             contextText.text = "You don't have enough points to open this door!";
+        }
+    }
+
+    private void AmmoBuy()
+    {
+        contextBox.SetActive(true);
+
+        if (!hasPushedE)
+            contextText.text = "Press E to get half your ammo back for " + pointCost.ToString() + " points!";
+        if (hasPushedE)
+        {
+            contextCounter -= Time.deltaTime;
+            if (contextCounter <= 0)
+            {
+                hasPushedE = false;
+                contextCounter = 0.5f;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost && !(PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo))
+        {
+            PlayerController.instance.currentPoints -= pointCost;
+            PlayerController.instance.currentAmmo += PlayerController.instance.maxAmmo / 2;
+
+            if (PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo)
+                PlayerController.instance.currentAmmo = PlayerController.instance.maxAmmo;
+
+            AudioController.instance.PlayAmmoPickup();
+
+            hasPushedE = true;
+        }
+        else if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost && PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo)
+        {
+            hasPushedE = true;
+            contextText.text = "You have max ammo, don't waste your points";
+        }
+        else if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints < pointCost)
+        {
+            hasPushedE = true;
+            contextText.text = "You don't have enough points for ammo, hope you got some to spare!";
         }
     }
 
@@ -167,7 +212,7 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
+        if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
         {
             PlayerController.instance.currentPoints -= pointCost;
             DrinkPerk();

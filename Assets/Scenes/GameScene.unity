@@ -3415,6 +3415,10 @@ PrefabInstance:
       value: Door Trigger 9
       objectReference: {fileID: 0}
     - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
+      propertyPath: pointCost
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: contextBox
       value: 
       objectReference: {fileID: 2128827979}
@@ -5523,6 +5527,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3926759181232533310, guid: 88d70d6ee6b67a34c9c0be333370a2e4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926759181232533310, guid: 88d70d6ee6b67a34c9c0be333370a2e4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926759181232533310, guid: 88d70d6ee6b67a34c9c0be333370a2e4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3926759181490044234, guid: 88d70d6ee6b67a34c9c0be333370a2e4,
         type: 3}
       propertyPath: m_Name
@@ -10585,6 +10604,10 @@ PrefabInstance:
       value: Door Trigger 2
       objectReference: {fileID: 0}
     - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
+      propertyPath: pointCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: contextBox
       value: 
       objectReference: {fileID: 2128827979}
@@ -12305,6 +12328,10 @@ PrefabInstance:
     - target: {fileID: 621041781, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: m_Name
       value: Door Trigger 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
+      propertyPath: pointCost
+      value: 1250
       objectReference: {fileID: 0}
     - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: contextBox
@@ -15180,6 +15207,10 @@ PrefabInstance:
       value: Door Trigger 8
       objectReference: {fileID: 0}
     - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
+      propertyPath: pointCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: contextBox
       value: 
       objectReference: {fileID: 2128827979}
@@ -15358,10 +15389,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 491798135}
-    - target: {fileID: 1678965564, guid: 5b025a3e484eeb9498a29b4d6180278c, type: 3}
-      propertyPath: m_Lightmapping
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 1791635609446476613, guid: 5b025a3e484eeb9498a29b4d6180278c,
         type: 3}
       propertyPath: m_Name
@@ -15482,6 +15509,11 @@ PrefabInstance:
       propertyPath: pointsText
       value: 
       objectReference: {fileID: 1259073740}
+    - target: {fileID: 1791635609446476729, guid: 5b025a3e484eeb9498a29b4d6180278c,
+        type: 3}
+      propertyPath: shotGunImage
+      value: 
+      objectReference: {fileID: 1408398795}
     - target: {fileID: 1791635609446476729, guid: 5b025a3e484eeb9498a29b4d6180278c,
         type: 3}
       propertyPath: totalPointsText
@@ -15687,6 +15719,10 @@ PrefabInstance:
       value: Door Trigger 7
       objectReference: {fileID: 0}
     - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
+      propertyPath: pointCost
+      value: 1250
+      objectReference: {fileID: 0}
+    - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: contextBox
       value: 
       objectReference: {fileID: 2128827979}
@@ -15767,6 +15803,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1406539455}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1408398795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3926759181232533310, guid: 88d70d6ee6b67a34c9c0be333370a2e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 440623350}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1416248407
 GameObject:
   m_ObjectHideFlags: 0
@@ -16972,6 +17020,10 @@ PrefabInstance:
     - target: {fileID: 621041781, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: m_Name
       value: Door Trigger 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
+      propertyPath: pointCost
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: contextBox
@@ -20160,6 +20212,10 @@ PrefabInstance:
       value: Door Trigger 6
       objectReference: {fileID: 0}
     - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
+      propertyPath: pointCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: contextBox
       value: 
       objectReference: {fileID: 2128827979}
@@ -22372,6 +22428,10 @@ PrefabInstance:
       value: Door Trigger 4
       objectReference: {fileID: 0}
     - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
+      propertyPath: pointCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: contextBox
       value: 
       objectReference: {fileID: 2128827979}
@@ -23600,6 +23660,90 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138300282}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1844780083389313594
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1844780082520888485, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: contextBox
+      value: 
+      objectReference: {fileID: 2128827979}
+    - target: {fileID: 1844780082520888485, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: contextText
+      value: 
+      objectReference: {fileID: 241136809}
+    - target: {fileID: 1844780082540747560, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844780082540747560, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.586
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844780082540747560, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844780082540747560, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844780082540747560, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844780082540747560, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844780082540747560, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844780082540747560, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844780082540747560, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844780082540747560, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844780082540747560, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844780082540747562, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e615e587a11c58b4ea237cde0ace48a9, type: 2}
+    - target: {fileID: 1844780082540747572, guid: d5404fc4b2643344680639481229da20,
+        type: 3}
+      propertyPath: m_Name
+      value: Ammo Buy Station
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5404fc4b2643344680639481229da20, type: 3}
 --- !u!1001 &2227049262621944280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23610,6 +23754,10 @@ PrefabInstance:
     - target: {fileID: 621041781, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: m_Name
       value: Door Trigger 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
+      propertyPath: pointCost
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 621041783, guid: 1a105b06aa6fb504a8d495f43c0d8013, type: 3}
       propertyPath: contextBox

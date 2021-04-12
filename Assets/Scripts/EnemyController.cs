@@ -91,7 +91,7 @@ public class EnemyController : MonoBehaviour
             case 3:
                 moveSpeed = 1.5f;
                 defaultSpeed = 5f;
-                health = 1;
+                health = 2;
                 damageDealt = 10;
                 break;
             case 4:
@@ -220,13 +220,13 @@ public class EnemyController : MonoBehaviour
 
     private void DropItem()
     {
-        if (PlayerController.instance.currentAmmo <= 20)
+        if (PlayerController.instance.currentAmmo <= 10)
         {
-            dropChance = Random.Range(30, 75);
+            dropChance = Random.Range(65, 75);
         }
-        else if (PlayerController.instance.playerHealth.currentHealth <= 25)
+        else if (PlayerController.instance.playerHealth.currentHealth <= 15)
         {
-            dropChance = Random.Range(60, 85);
+            dropChance = Random.Range(74, 81);
         }
 
         if (dropChance >= 70 && dropChance <= 74)
