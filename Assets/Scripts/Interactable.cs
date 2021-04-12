@@ -10,10 +10,8 @@ public class Interactable : MonoBehaviour
     [SerializeField] private bool isMoveSpeedPerk = false;
     [SerializeField] private bool isIncreasedDamagePerk = false;
     [SerializeField] private NavMeshCarve carve;
-    [SerializeField] private Transform parentDoor;
 
-    public float doorCloseOffset = -1.2f;
-    private Vector3 doorCloseVectorOffset;
+    public float rightDoorOffset = -7f;
     public float step = 5f;
     public bool moveDoor = false;
 
@@ -25,7 +23,9 @@ public class Interactable : MonoBehaviour
     private bool hasPushedE = false;
     private float contextCounter = 0.5f;
 
-    private PlayerController player;
+    public GameObject rightDoor;
+    public GameObject leftDoor;
+    public BoxCollider frameCollider;
 
     //to do : replace all PlayerController.instance areas of code with player variable above
 
@@ -33,9 +33,6 @@ public class Interactable : MonoBehaviour
     void Start()
     {
         contextBox.SetActive(false);
-        parentDoor = gameObject.transform.parent.gameObject.transform;
-
-        doorCloseVectorOffset = new Vector3(parentDoor.position.x, doorCloseOffset, parentDoor.position.z);
     }
 
     // Update is called once per frame
@@ -43,10 +40,19 @@ public class Interactable : MonoBehaviour
     {
         if (moveDoor)
         {
-            parentDoor.transform.position = Vector3.Lerp(parentDoor.transform.position, doorCloseVectorOffset, step * Time.deltaTime);
+            frameCollider.enabled = false;
+            contextBox.SetActive(false);
 
-            if (parentDoor.transform.position == doorCloseVectorOffset)
+            rightDoor.transform.localPosition -= new Vector3(0, 0, 3f) * Time.deltaTime;
+            leftDoor.transform.localPosition += new Vector3(0, 0, 3f) * Time.deltaTime;
+
+            if (rightDoor.transform.localPosition.z <= -5f && leftDoor.transform.localPosition.z >= 5f)
             {
+                rightDoor.SetActive(false);
+                leftDoor.SetActive(false);
+
+                frameCollider.gameObject.SetActive(false);
+
                 gameObject.SetActive(false);
             }
         }
@@ -130,14 +136,12 @@ public class Interactable : MonoBehaviour
 
         if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
         {
-            
+            contextBox.SetActive(false);
             PlayerController.instance.currentPoints -= pointCost;
             moveDoor = true;
 
             carve.UpdateNav();
 
-            
-            contextBox.SetActive(false);
         }
         else if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints < pointCost && !moveDoor)
         {
