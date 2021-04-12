@@ -9,6 +9,7 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject enemyRangedPrefab;
+    [SerializeField] private GameObject enemyThirdPrefab;
     [SerializeField] private Text enemyText;
     [SerializeField] private Text roundText;
 
@@ -78,6 +79,7 @@ public class SpawnManager : MonoBehaviour
                     enemyNumber = 50;
                 }
                 SpawnEnemyWave(enemyNumber);
+                SpawnThirdEnemyWave(enemyNumber);
                 roundText.text = "Round: " + roundNumber.ToString();
 
                 if (roundNumber >= 5)
@@ -279,4 +281,13 @@ public class SpawnManager : MonoBehaviour
             Instantiate(enemyRangedPrefab, GenerateSpawnPoint(PlayerController.instance.playerZone), enemyRangedPrefab.transform.rotation);
         }
     }
+
+    void SpawnThirdEnemyWave(int enemiesToSpawn)
+    {
+        for (int i = 0; i < enemiesToSpawn; i++)
+        {
+            Instantiate(enemyThirdPrefab, GenerateSpawnPoint(PlayerController.instance.playerZone), enemyThirdPrefab.transform.rotation);
+        }
+    }
+
 }
