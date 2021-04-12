@@ -47,6 +47,8 @@ MonoBehaviour:
     type: 3}
   enemyRangedPrefab: {fileID: 5120858214120631112, guid: d25ef2ecd9cbd834f97f1fc021d4299d,
     type: 3}
+  enemyThirdPrefab: {fileID: 5120858214120631112, guid: 88262e7c6ab51544682570e540ae4db0,
+    type: 3}
   enemyText: {fileID: 0}
   roundText: {fileID: 0}
   RoundStartBox: {fileID: 0}
