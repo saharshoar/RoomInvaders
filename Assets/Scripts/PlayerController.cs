@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
     public GameObject perkSlot3;
     public Sprite[] perkSprites;
 
+    public Image shotGunImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -120,6 +122,11 @@ public class PlayerController : MonoBehaviour
             else if (!damagePickup && currentlyPoweredUp)
             {
                 PowerUpCountdown();
+            }
+
+            if (currentlyPoweredUp)
+            {
+                shotGunImage.color = Color.red;
             }
 
 
@@ -207,6 +214,7 @@ public class PlayerController : MonoBehaviour
         {
             currentlyPoweredUp = false;
             damageDealt = tempDamageDealt;
+            shotGunImage.color = Color.white;
             powerUpCounter = 15f;
         }
     }

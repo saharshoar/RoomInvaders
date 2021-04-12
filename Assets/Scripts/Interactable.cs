@@ -10,10 +10,8 @@ public class Interactable : MonoBehaviour
     [SerializeField] private bool isMoveSpeedPerk = false;
     [SerializeField] private bool isIncreasedDamagePerk = false;
     [SerializeField] private NavMeshCarve carve;
-    [SerializeField] private Transform parentDoor;
 
-    public float doorCloseOffset = -1.2f;
-    private Vector3 doorCloseVectorOffset;
+    public float rightDoorOffset = -7f;
     public float step = 5f;
     public bool moveDoor = false;
 
@@ -23,9 +21,11 @@ public class Interactable : MonoBehaviour
     public int pointCost = 1000;
 
     private bool hasPushedE = false;
-    private float contextCounter = 0.5f;
+    private float contextCounter = 1f;
 
-    private PlayerController player;
+    public GameObject rightDoor;
+    public GameObject leftDoor;
+    public BoxCollider frameCollider;
 
     //to do : replace all PlayerController.instance areas of code with player variable above
 
@@ -33,9 +33,6 @@ public class Interactable : MonoBehaviour
     void Start()
     {
         contextBox.SetActive(false);
-        parentDoor = gameObject.transform.parent.gameObject.transform;
-
-        doorCloseVectorOffset = new Vector3(parentDoor.position.x, doorCloseOffset, parentDoor.position.z);
     }
 
     // Update is called once per frame
@@ -43,10 +40,19 @@ public class Interactable : MonoBehaviour
     {
         if (moveDoor)
         {
-            parentDoor.transform.position = Vector3.Lerp(parentDoor.transform.position, doorCloseVectorOffset, step * Time.deltaTime);
+            frameCollider.enabled = false;
+            contextBox.SetActive(false);
 
-            if (parentDoor.transform.position == doorCloseVectorOffset)
+            rightDoor.transform.localPosition -= new Vector3(0, 0, 3f) * Time.deltaTime;
+            leftDoor.transform.localPosition += new Vector3(0, 0, 3f) * Time.deltaTime;
+
+            if (rightDoor.transform.localPosition.z <= -5f && leftDoor.transform.localPosition.z >= 5f)
             {
+                rightDoor.SetActive(false);
+                leftDoor.SetActive(false);
+
+                frameCollider.gameObject.SetActive(false);
+
                 gameObject.SetActive(false);
             }
         }
@@ -76,6 +82,11 @@ public class Interactable : MonoBehaviour
         {
             pointCost = 0;
             PowerDoor();
+        }
+
+        if (other.tag == "Player" && gameObject.tag == "Ammo Buy")
+        {
+            AmmoBuy();
         }
     }
 
@@ -128,22 +139,62 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
+        if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost && !hasPushedE)
         {
-            
+            contextBox.SetActive(false);
+            hasPushedE = true;
             PlayerController.instance.currentPoints -= pointCost;
             moveDoor = true;
 
             carve.UpdateNav();
 
-            
-            contextBox.SetActive(false);
         }
         else if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints < pointCost && !moveDoor)
         {
             hasPushedE = true;
             contextBox.SetActive(true);
             contextText.text = "You don't have enough points to open this door!";
+        }
+    }
+
+    private void AmmoBuy()
+    {
+        contextBox.SetActive(true);
+
+        if (!hasPushedE)
+            contextText.text = "Press E to get half your ammo back for " + pointCost.ToString() + " points!";
+        if (hasPushedE)
+        {
+            contextCounter -= Time.deltaTime;
+            if (contextCounter <= 0)
+            {
+                hasPushedE = false;
+                contextCounter = 0.5f;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost 
+            && !(PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo && !hasPushedE))
+        {
+            PlayerController.instance.currentPoints -= pointCost;
+            PlayerController.instance.currentAmmo += PlayerController.instance.maxAmmo / 2;
+
+            if (PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo)
+                PlayerController.instance.currentAmmo = PlayerController.instance.maxAmmo;
+
+            AudioController.instance.PlayAmmoPickup();
+
+            hasPushedE = true;
+        }
+        else if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost && PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo)
+        {
+            hasPushedE = true;
+            contextText.text = "You have max ammo, don't waste your points";
+        }
+        else if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints < pointCost)
+        {
+            hasPushedE = true;
+            contextText.text = "You don't have enough points for ammo, hope you got some to spare!";
         }
     }
 
@@ -163,7 +214,7 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
+        if (Input.GetKeyDown(KeyCode.E) && PlayerController.instance.currentPoints >= pointCost)
         {
             PlayerController.instance.currentPoints -= pointCost;
             DrinkPerk();
