@@ -635,7 +635,7 @@ public class SpawnManager : MonoBehaviour
         }
         else if (currentZone == 9)
         {
-            return new Vector3(spawnPointLocs[3].position.x + spawnPosX, 0.25f, spawnPointLocs[3].position.z + spawnPosZ);
+            return new Vector3(spawnPointLocs[2].position.x + spawnPosX, 0.25f, spawnPointLocs[2].position.z + spawnPosZ);
         }
         else
         {

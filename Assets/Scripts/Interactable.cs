@@ -194,7 +194,7 @@ public class Interactable : MonoBehaviour
         else if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints < pointCost)
         {
             hasPushedE = true;
-            contextText.text = "You don't have enough points for ammo, hope you got some to spare!";
+            contextText.text = "You don't have enough points for ammo!";
         }
     }
 
