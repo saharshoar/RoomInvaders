@@ -61,21 +61,21 @@ public class SpawnManager : MonoBehaviour
 
     private void DoorStatus()
     {
-        if (doors[0].moveDoor)
+        if (doors[0] && doors[0].moveDoor)
             door1Open = true;
-        if (doors[1].moveDoor)
+        if (doors[1] && doors[1].moveDoor)
             door2Open = true;
-        if (doors[2].moveDoor)
+        if (doors[2] && doors[2].moveDoor)
             door3Open = true;
-        if (doors[3].moveDoor)
+        if (doors[3] && doors[3].moveDoor)
             door4Open = true;
-        if (doors[4].moveDoor)
+        if (doors[4] && doors[4].moveDoor)
             door5Open = true;
-        if (doors[5].moveDoor)
+        if (doors[5] && doors[5].moveDoor)
             door6Open = true;
-        if (doors[6].moveDoor)
+        if (doors[6] && doors[6].moveDoor)
             door7Open = true;
-        if (doors[7].moveDoor)
+        if (doors[7] && doors[7].moveDoor)
             door8Open = true;
     }
 
