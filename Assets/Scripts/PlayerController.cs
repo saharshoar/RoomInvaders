@@ -167,6 +167,7 @@ public class PlayerController : MonoBehaviour
             if (moveInput != Vector3.zero)
             {
                 anim.SetBool("isMoving", true);
+              //  AudioController.instance.PlayfootstepOutside();
             }
             else
             {

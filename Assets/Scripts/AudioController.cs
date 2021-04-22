@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     public static AudioController instance;
-    public AudioSource ammo, enemyDeath, enemyShot, gunshot, health, playerHurt, gunshotUpgrade;
+    public AudioSource ammo, enemyDeath, enemyShot, gunshot, health, playerHurt, gunshotUpgrade, footstepOutside, footstepInside;
 
 
     private void Awake()
@@ -23,6 +23,17 @@ public class AudioController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PlayfootstepOutside()
+    {
+        footstepOutside.Stop();
+        footstepOutside.Play();
+    }
+    public void PlayfootstepInside()
+    {
+        footstepInside.Stop();
+        footstepInside.Play();
     }
 
     public void PlayAmmoPickup()
