@@ -65,6 +65,10 @@ public class PlayerController : MonoBehaviour
     public Sprite[] perkSprites;
 
     public Image shotGunImage;
+    public AudioSource outdoorFootstep;
+    public AudioSource indoorFootstep;
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -81,6 +85,9 @@ public class PlayerController : MonoBehaviour
 
         roundBox.SetActive(true);
         ammoBox.SetActive(true);
+        outdoorFootstep = GetComponent<AudioSource>();
+        indoorFootstep = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -167,15 +174,26 @@ public class PlayerController : MonoBehaviour
             if (moveInput != Vector3.zero)
             {
                 anim.SetBool("isMoving", true);
-              //  AudioController.instance.PlayfootstepOutside();
+                if (playerZone == 1)
+                {
+                    if (!outdoorFootstep.isPlaying)
+                        outdoorFootstep.UnPause();
+                }
+                if (playerZone != 1)
+                {
+                    if (!indoorFootstep.isPlaying)
+                        indoorFootstep.UnPause();
+                }
             }
             else
             {
                 anim.SetBool("isMoving", false);
+                outdoorFootstep.Pause();
+                indoorFootstep.Pause();
             }
-
-            // Makes the points UI start once points have been accumulated
-            if (currentPoints > 0)
+          
+                // Makes the points UI start once points have been accumulated
+                if (currentPoints > 0)
             {
                 pointsBox.SetActive(true);
             }
