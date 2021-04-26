@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad0ebac967a7b6458bf35573329d67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 1
   damageDealt: 20
   explosion: {fileID: 1573119752231247061, guid: 430a6223436bdbd4caf82fbb6ecd3db9,
     type: 3}
@@ -69,7 +69,7 @@ MonoBehaviour:
   shootRange: 5
   meleeRange: 1.5
   theRB: {fileID: 5120858214120631108}
-  moveSpeed: 4.5
+  moveSpeed: 8
   pointWorth: 100
   playerDistance: 0
   shouldShoot: 0
@@ -110,8 +110,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 8
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0

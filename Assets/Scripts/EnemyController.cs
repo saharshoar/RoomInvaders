@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
 
     public Rigidbody theRB;
     public float moveSpeed = 4f;
-    private float defaultSpeed;
+    private float defaultSpeed = 1f;
 
     public int pointWorth = 100;
 
