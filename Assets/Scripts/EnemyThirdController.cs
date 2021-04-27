@@ -103,8 +103,8 @@ public class EnemyThirdController : MonoBehaviour
             case 1:
             case 2:
             case 3:
-                moveSpeed = 2.5f;
-                defaultSpeed = 5f;
+                moveSpeed = 2f;
+                defaultSpeed = 3f;
                 health = 1;
                 damageDealt = 10;
                 dropChance = Random.Range(1, 101);
@@ -114,7 +114,7 @@ public class EnemyThirdController : MonoBehaviour
             case 6:
             case 7:
                 moveSpeed = 3f;
-                defaultSpeed = 10f;
+                defaultSpeed = 5f;
                 health = 2;
                 damageDealt = 12;
                 dropChance = Random.Range(1, 40);
@@ -123,8 +123,8 @@ public class EnemyThirdController : MonoBehaviour
             case 9:
             case 10:
                 moveSpeed = 4.5f;
-                defaultSpeed = 12f;
-                health = 4;
+                defaultSpeed = 7f;
+                health = 2;
                 damageDealt = 15;
                 dropChance = Random.Range(1, 20);
                 break;
@@ -133,10 +133,10 @@ public class EnemyThirdController : MonoBehaviour
             case 13:
             case 14:
             case 15:
-                moveSpeed = 7f;
-                defaultSpeed = 15f;
-                health = 6;
-                damageDealt = 20;
+                moveSpeed = 8f;
+                defaultSpeed = 10f;
+                health = 3;
+                damageDealt = 15;
                 dropChance = Random.Range(60, 101);
                 break;
             case 16:
@@ -145,16 +145,16 @@ public class EnemyThirdController : MonoBehaviour
             case 19:
                 moveSpeed = 10f;
                 defaultSpeed = 15f;
-                health = 8;
+                health = 3;
                 damageDealt = 20;
                 dropChance = Random.Range(1, 101);
                 break;
             case 20:
             default:
-                moveSpeed = 13f;
-                defaultSpeed = 20f;
-                health = 10;
-                damageDealt = 25;
+                moveSpeed = 12f;
+                defaultSpeed = 18f;
+                health = 4;
+                damageDealt = 20;
                 dropChance = Random.Range(1, 101);
                 break;
 

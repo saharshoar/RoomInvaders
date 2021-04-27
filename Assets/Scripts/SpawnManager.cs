@@ -18,7 +18,7 @@ public class SpawnManager : MonoBehaviour
 
     public int enemyCount;
     public int roundNumber = 1;
-    public int enemyNumber = 9;
+    public int enemyNumber = 0;
     private float roundCounter = 5f;
 
     public Vector3 spawnPoint;
@@ -107,20 +107,20 @@ public class SpawnManager : MonoBehaviour
             {
                 roundNumber++;
                 if (roundNumber <= 5)
-                    enemyNumber++;
-                else if (roundNumber > 5 && roundNumber < 10)
                     enemyNumber += 2;
-                else if (roundNumber >= 10 && roundNumber < 20)
+                else if (roundNumber > 5 && roundNumber < 10)
                     enemyNumber += 3;
-                else if (roundNumber >= 20)
+                else if (roundNumber >= 10 && roundNumber < 20)
                     enemyNumber += 4;
+                else if (roundNumber >= 20)
+                    enemyNumber += 5;
 
                 if (enemyNumber >= 75)
                 {
                     enemyNumber = 75;
                 }
                 SpawnEnemyWave(enemyNumber);
-                SpawnThirdEnemyWave(enemyNumber);
+                SpawnThirdEnemyWave(enemyNumber/2);
                 roundText.text = "Round: " + roundNumber.ToString();
 
                 if (roundNumber >= 5)

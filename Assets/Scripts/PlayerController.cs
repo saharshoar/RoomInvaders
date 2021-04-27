@@ -211,6 +211,12 @@ public class PlayerController : MonoBehaviour
             roundBox.SetActive(false);
             ammoBox.SetActive(false);
         }
+
+
+        if (transform.position.y >= 0.8f)
+        {
+            SnapToFloor();
+        }
     }
 
     public void RewardPoints(int points)
@@ -235,6 +241,11 @@ public class PlayerController : MonoBehaviour
             shotGunImage.color = Color.white;
             powerUpCounter = 15f;
         }
+    }
+
+    private void SnapToFloor()
+    {
+        transform.position = new Vector3(transform.position.x, 0.75f, transform.position.z);
     }
 
     public void PerkUIUpdate(int perkReceived)

@@ -89,8 +89,8 @@ public class EnemyController : MonoBehaviour
             case 1:
             case 2:
             case 3:
-                moveSpeed = 1.5f;
-                defaultSpeed = 5f;
+                moveSpeed = 1f;
+                defaultSpeed = 2.5f;
                 health = 2;
                 damageDealt = 10;
                 break;
@@ -99,7 +99,7 @@ public class EnemyController : MonoBehaviour
             case 6:
             case 7:
                 moveSpeed = 2f;
-                defaultSpeed = 10f;
+                defaultSpeed = 4f;
                 health = 3;
                 damageDealt = 15;
                 break;
@@ -107,8 +107,8 @@ public class EnemyController : MonoBehaviour
             case 9:
             case 10:
                 moveSpeed = 3.5f;
-                defaultSpeed = 12f;
-                health = 5;
+                defaultSpeed = 6f;
+                health = 4;
                 damageDealt = 15;
                 break;
             case 11:
@@ -116,25 +116,25 @@ public class EnemyController : MonoBehaviour
             case 13:
             case 14:
             case 15:
-                moveSpeed = 6f;
-                defaultSpeed = 15f;
-                health = 6;
+                moveSpeed = 4.5f;
+                defaultSpeed = 8f;
+                health = 5;
                 damageDealt = 20;
                 break;
             case 16:
             case 17:
             case 18:
             case 19:
-                moveSpeed = 9f;
-                defaultSpeed = 15f;
-                health = 8;
+                moveSpeed = 6f;
+                defaultSpeed = 12f;
+                health = 6;
                 damageDealt = 20;
                 break;
             case 20:
             default:
-                moveSpeed = 12f;
-                defaultSpeed = 20f;
-                health = 10;
+                moveSpeed = 10f;
+                defaultSpeed = 15f;
+                health = 8;
                 damageDealt = 25;
                 break;
                 
