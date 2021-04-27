@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5120858214120631115}
   - component: {fileID: 5120858214120631114}
+  - component: {fileID: -379228347897345822}
   - component: {fileID: 5120858214120631109}
   - component: {fileID: 5120858214120631108}
   - component: {fileID: -8499056989896426101}
@@ -49,7 +50,7 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.55, z: 0}
---- !u!114 &5120858214120631109
+--- !u!114 &-379228347897345822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,6 +58,37 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5120858214120631112}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee7a273a57184144bfaa1f7bc85c04f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  damageDealt: 10
+  explosion: {fileID: 1573119752231247061, guid: 430a6223436bdbd4caf82fbb6ecd3db9,
+    type: 3}
+  playerRange: 10
+  meleeRange: 1.5
+  theRB: {fileID: 5120858214120631108}
+  moveSpeed: 8
+  pointWorth: 100
+  playerDistance: 0
+  meleeCounter: 1
+  ammoDrop: {fileID: 560742210299270733, guid: f2879a6081af0cf499926fec8c55d7e1, type: 3}
+  healthDrop: {fileID: 8537401487697438824, guid: 58368671736557d4aa177edfe0ce8f08,
+    type: 3}
+  damageDrop: {fileID: 3969634161395524893, guid: 055dc38e0c18ce04883c72a7d3c9b0f0,
+    type: 3}
+  hasAttacked: 0
+  goal: {fileID: 0}
+  inLineOfSight: 0
+--- !u!114 &5120858214120631109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5120858214120631112}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad0ebac967a7b6458bf35573329d67b, type: 3}
   m_Name: 
