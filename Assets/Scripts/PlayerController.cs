@@ -65,6 +65,10 @@ public class PlayerController : MonoBehaviour
     public Sprite[] perkSprites;
 
     public Image shotGunImage;
+
+    private float fireRate = 0.3f;
+    private float fireRateCounter = 0.3f;
+    private bool canFire = true;
     
     
 
@@ -83,6 +87,8 @@ public class PlayerController : MonoBehaviour
 
         roundBox.SetActive(true);
         ammoBox.SetActive(true);
+
+        fireRateCounter = fireRate;
 
     }
 
@@ -133,7 +139,7 @@ public class PlayerController : MonoBehaviour
             }
 
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && canFire)
             {
                 if (currentAmmo > 0)
                 {
@@ -165,7 +171,14 @@ public class PlayerController : MonoBehaviour
 
                     //Shotgun animation
                     shotGunUI.SetTrigger("Shoot");
+
+                    canFire = false;
                 }
+            }
+
+            if (!canFire)
+            {
+                FireRateCountdown();
             }
 
             ammoText.text = currentAmmo.ToString();
@@ -240,6 +253,17 @@ public class PlayerController : MonoBehaviour
             damageDealt = tempDamageDealt;
             shotGunImage.color = Color.white;
             powerUpCounter = 15f;
+        }
+    }
+
+    private void FireRateCountdown()
+    {
+        fireRateCounter -= Time.deltaTime;
+
+        if (fireRateCounter <= 0)
+        {
+            canFire = true;
+            fireRateCounter = fireRate;
         }
     }
 

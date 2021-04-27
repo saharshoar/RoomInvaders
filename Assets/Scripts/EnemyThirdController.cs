@@ -133,8 +133,8 @@ public class EnemyThirdController : MonoBehaviour
             case 13:
             case 14:
             case 15:
-                moveSpeed = 8f;
-                defaultSpeed = 10f;
+                moveSpeed = 6f;
+                defaultSpeed = 8f;
                 health = 3;
                 damageDealt = 15;
                 dropChance = Random.Range(60, 101);
@@ -143,16 +143,16 @@ public class EnemyThirdController : MonoBehaviour
             case 17:
             case 18:
             case 19:
-                moveSpeed = 10f;
-                defaultSpeed = 15f;
+                moveSpeed = 8f;
+                defaultSpeed = 12f;
                 health = 3;
                 damageDealt = 20;
                 dropChance = Random.Range(1, 101);
                 break;
             case 20:
             default:
-                moveSpeed = 12f;
-                defaultSpeed = 18f;
+                moveSpeed = 10f;
+                defaultSpeed = 15f;
                 health = 4;
                 damageDealt = 20;
                 dropChance = Random.Range(1, 101);
