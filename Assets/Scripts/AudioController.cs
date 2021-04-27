@@ -27,12 +27,12 @@ public class AudioController : MonoBehaviour
 
     public void PlayfootstepOutside()
     {
-        footstepOutside.Stop();
+        //footstepOutside.Stop();
         footstepOutside.Play();
     }
     public void PlayfootstepInside()
     {
-        footstepInside.Stop();
+        //footstepInside.Stop();
         footstepInside.Play();
     }
 

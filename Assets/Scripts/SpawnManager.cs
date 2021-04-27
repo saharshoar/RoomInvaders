@@ -51,6 +51,7 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         enemyCount = FindObjectsOfType<EnemyController>().Length;
+        enemyCount += FindObjectsOfType<EnemyThirdController>().Length;
         enemyText.text = "Enemies left: " + enemyCount.ToString();
 
         StartRound();

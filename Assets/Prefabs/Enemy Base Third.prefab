@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 5120858214120631115}
   - component: {fileID: 5120858214120631114}
   - component: {fileID: -379228347897345822}
-  - component: {fileID: 5120858214120631109}
   - component: {fileID: 5120858214120631108}
   - component: {fileID: -8499056989896426101}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Enemy Base Third
-  m_TagString: Enemy
+  m_TagString: Enemy3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,41 +80,6 @@ MonoBehaviour:
   hasAttacked: 0
   goal: {fileID: 0}
   inLineOfSight: 0
---- !u!114 &5120858214120631109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5120858214120631112}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ad0ebac967a7b6458bf35573329d67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  damageDealt: 20
-  explosion: {fileID: 1573119752231247061, guid: 430a6223436bdbd4caf82fbb6ecd3db9,
-    type: 3}
-  playerRange: 10
-  shootRange: 5
-  meleeRange: 1.5
-  theRB: {fileID: 5120858214120631108}
-  moveSpeed: 8
-  pointWorth: 100
-  playerDistance: 0
-  shouldShoot: 0
-  fireRate: 0.5
-  meleeCounter: 1
-  bullet: {fileID: 6484259196493607677, guid: d634c134c38f20a40bbd40b8a997f295, type: 3}
-  firePoint: {fileID: 5120858214782045098}
-  ammoDrop: {fileID: 560742210299270733, guid: f2879a6081af0cf499926fec8c55d7e1, type: 3}
-  healthDrop: {fileID: 8537401487697438824, guid: 58368671736557d4aa177edfe0ce8f08,
-    type: 3}
-  damageDrop: {fileID: 3969634161395524893, guid: 055dc38e0c18ce04883c72a7d3c9b0f0,
-    type: 3}
-  goal: {fileID: 0}
-  inLineOfSight: 0
 --- !u!54 &5120858214120631108
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,7 +105,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5120858214120631112}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Speed: 8
   m_Acceleration: 10
   avoidancePriority: 50
@@ -150,7 +114,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1.5
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -165,7 +129,7 @@ GameObject:
   - component: {fileID: 5120858214740079154}
   - component: {fileID: 5120858214740079116}
   - component: {fileID: 5120858214740079117}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: skull-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5120858214782045098}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}

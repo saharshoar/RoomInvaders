@@ -153,6 +153,11 @@ public class PlayerController : MonoBehaviour
                         {
                             hit.transform.GetComponent<EnemyController>().TakeDamage(damageDealt);
                         }
+
+                        if (hit.transform.tag == "Enemy3")
+                        {
+                            hit.transform.GetComponent<EnemyThirdController>().TakeDamage(damageDealt);
+                        }
                     }
                     else
                     {
@@ -179,7 +184,7 @@ public class PlayerController : MonoBehaviour
                     if (!outdoorFootstep.isPlaying)
                         outdoorFootstep.UnPause();
                 }
-                if (playerZone != 1)
+                else if (playerZone != 1)
                 {
                     if (!indoorFootstep.isPlaying)
                         indoorFootstep.UnPause();
