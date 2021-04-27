@@ -13,7 +13,7 @@ public class EnemyThirdController : MonoBehaviour
 
     public float playerRange = 10f;
     //public float shootRange = 8f;
-    //private float shootRangeAI = 7.5f;
+    private float RangeAI = 7.5f;
     public float meleeRange = 1.5f;
 
 
@@ -58,9 +58,9 @@ public class EnemyThirdController : MonoBehaviour
 
         goal = PlayerController.instance.transform;
 
-        //if (newRound)
+        //if (hasAttacked)
         //{
-            StartCoroutine(WaitPerSecond(5.00f));
+           // StartCoroutine(WaitPerSecond(5.00f));
             agent = GetComponent<NavMeshAgent>();
         //}
 
@@ -177,26 +177,49 @@ public class EnemyThirdController : MonoBehaviour
 
         playerDistance = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
 
-       /* if (shouldShoot && playerDistance <= shootRange && inLineOfSight)
+        /* if (shouldShoot && playerDistance <= shootRange && inLineOfSight)
+         {
+             RangedAttack();
+
+             if (playerDistance <= shootRangeAI)
+             {
+
+                 goal = gameObject.transform;
+             }
+         }
+
+         else
+         {*/
+        // goal = PlayerController.instance.transform;
+
+        // if (playerDistance < playerRange && !shouldShoot)
+        // MeleeAttack();
+        //}
+
+        if (hasAttacked && playerDistance <= playerRange && inLineOfSight)
         {
-            RangedAttack();
+            //wait 1.5 seconds
+            StartCoroutine(WaitPerSecond(1.5f));
 
-            if (playerDistance <= shootRangeAI)
+            if (playerDistance <= RangeAI)
             {
-
                 goal = gameObject.transform;
             }
         }
 
         else
-        {*/
+        {
             goal = PlayerController.instance.transform;
 
-           // if (playerDistance < playerRange && !shouldShoot)
-               // MeleeAttack();
-        //}
-
-        if (playerDistance < playerRange)
+            if (playerDistance < playerRange && !hasAttacked)
+                MeleeAttack();
+        }
+       
+        
+        
+        
+        
+       /* if (playerDistance < playerRange)
         {
             MeleeAttack();
             hasAttacked = true;
@@ -207,7 +230,7 @@ public class EnemyThirdController : MonoBehaviour
             //yield WaitForSeconds(5.0);
             StartCoroutine(WaitPerSecond(5.00f));
             hasAttacked = false;
-        }
+        }*/
 
         agent.destination = goal.position;
     }
@@ -218,7 +241,8 @@ public class EnemyThirdController : MonoBehaviour
         //agent = GetComponent<NavMeshAgent>();
         float startTime = Time.deltaTime;
         while (Time.time - startTime < duration)
-            yield return null;
+            //agent = GetComponent<NavMeshAgent>();
+        yield return null;
 
         //agent = GetComponent<NavMeshAgent>();
 
@@ -273,7 +297,7 @@ public class EnemyThirdController : MonoBehaviour
             dropChance = Random.Range(74, 81);
         }
 
-        else if (dropChance >= 70 && dropChance <= 74)
+        if (dropChance >= 70 && dropChance <= 74)
         {
            Instantiate(ammoDrop, transform.position, transform.rotation);
         }
