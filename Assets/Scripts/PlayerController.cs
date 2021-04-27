@@ -65,8 +65,6 @@ public class PlayerController : MonoBehaviour
     public Sprite[] perkSprites;
 
     public Image shotGunImage;
-    public AudioSource outdoorFootstep;
-    public AudioSource indoorFootstep;
     
     
 
@@ -85,8 +83,6 @@ public class PlayerController : MonoBehaviour
 
         roundBox.SetActive(true);
         ammoBox.SetActive(true);
-        outdoorFootstep = GetComponent<AudioSource>();
-        indoorFootstep = GetComponent<AudioSource>();
 
     }
 
@@ -181,20 +177,18 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("isMoving", true);
                 if (playerZone == 1)
                 {
-                    if (!outdoorFootstep.isPlaying)
-                        outdoorFootstep.UnPause();
+                    if (!AudioController.instance.footstepOutside.isPlaying)
+                        AudioController.instance.PlayfootstepOutside();
                 }
                 else if (playerZone != 1)
                 {
-                    if (!indoorFootstep.isPlaying)
-                        indoorFootstep.UnPause();
+                    if (!AudioController.instance.footstepInside.isPlaying)
+                        AudioController.instance.PlayfootstepInside();
                 }
             }
             else
             {
                 anim.SetBool("isMoving", false);
-                outdoorFootstep.Pause();
-                indoorFootstep.Pause();
             }
           
                 // Makes the points UI start once points have been accumulated

@@ -87,7 +87,7 @@ public class LightingTest : MonoBehaviour
     {
         if (PowerSwitch.instance.powerOn)
         {
-            if (intensity2Song.volume < 0.6f)
+            if (intensity2Song.volume < 0.8f)
             {
                 intensity2Song.volume += 0.1f * Time.deltaTime;
             }
