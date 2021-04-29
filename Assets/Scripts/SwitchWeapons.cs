@@ -10,7 +10,7 @@ public class SwitchWeapons : MonoBehaviour
     void Start()
     {
         weapons[0].SetActive(true);
-        
+        weapons[1].SetActive(false);
     }
 
     // Update is called once per frame
