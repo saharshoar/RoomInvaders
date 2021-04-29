@@ -7,7 +7,8 @@ public class LightingTest : MonoBehaviour
     public GameObject playerLight;
     public List<GameObject> planePointLights;
     public List<Material> emissionLights;
-    private bool flashLightOn = true;
+    private bool flashLightOn = false;
+    private bool firstFlashLightToggle = true;
     public AudioSource intensity2Song;
     public AudioSource intensity3Song;
 
@@ -19,6 +20,7 @@ public class LightingTest : MonoBehaviour
     {
         intensity2Song.volume = 0f;
         intensity3Song.volume = 0f;
+        playerLight.SetActive(false);
 
         foreach (Material emission in emissionLights)
         {
@@ -68,7 +70,14 @@ public class LightingTest : MonoBehaviour
 
     private void FlashLightToggle()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (firstFlashLightToggle && PlayerController.instance.hasFlashlight)
+        {
+            playerLight.SetActive(true);
+            flashLightOn = true;
+            firstFlashLightToggle = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && PlayerController.instance.hasFlashlight)
         {
             if (flashLightOn)
             {

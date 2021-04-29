@@ -37,6 +37,8 @@ public class SpawnManager : MonoBehaviour
     private bool door7Open = false;
     private bool door8Open = false;
 
+    public bool gameStart = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +56,10 @@ public class SpawnManager : MonoBehaviour
         enemyCount += FindObjectsOfType<EnemyThirdController>().Length;
         enemyText.text = "Enemies left: " + enemyCount.ToString();
 
-        StartRound();
+        if (gameStart)
+        {
+            StartRound();
+        }
 
         DoorStatus();
 

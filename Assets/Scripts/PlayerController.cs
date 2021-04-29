@@ -69,6 +69,8 @@ public class PlayerController : MonoBehaviour
     private float fireRate = 0.3f;
     private float fireRateCounter = 0.3f;
     private bool canFire = true;
+
+    public bool hasFlashlight = false;
     
     
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.AI;
 
 public class Interactable : MonoBehaviour
 {
@@ -88,12 +87,36 @@ public class Interactable : MonoBehaviour
         {
             AmmoBuy();
         }
+
+        if (other.tag == "Player" && gameObject.tag == "Flashlight")
+        {
+            FlashLight();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
         {
+            contextBox.SetActive(false);
+        }
+    }
+
+    private void FlashLight()
+    {
+        contextBox.SetActive(true);
+
+        if (!hasPushedE)
+            contextText.text = "Press E to pick up flashlight, prepare for Room Invaders!";
+        if (hasPushedE)
+        {
+            PlayerController.instance.hasFlashlight = true;
+            SpawnManager.instance.gameStart = true;
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            hasPushedE = true;
             contextBox.SetActive(false);
         }
     }
