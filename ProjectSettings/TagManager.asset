@@ -24,6 +24,7 @@ TagManager:
   - Ammo Buy
   - Enemy3
   - Flashlight
+  - WeaponPickup
   layers:
   - Default
   - TransparentFX

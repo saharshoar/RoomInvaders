@@ -2922,6 +2922,7 @@ GameObject:
   - component: {fileID: 3926759181490044233}
   - component: {fileID: 3926759181490044237}
   - component: {fileID: 1786814859}
+  - component: {fileID: 7028876341092897764}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -3044,6 +3045,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 875193466}
+--- !u!114 &7028876341092897764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3926759181490044234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb484ff5c688ce44e91a7358f1185879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons: []
 --- !u!1 &3926759181504744892
 GameObject:
   m_ObjectHideFlags: 0
