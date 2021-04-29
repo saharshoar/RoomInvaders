@@ -23,6 +23,7 @@ TagManager:
   - Zone 9
   - Ammo Buy
   - Enemy3
+  - WeaponPickup
   layers:
   - Default
   - TransparentFX
