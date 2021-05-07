@@ -11685,6 +11685,7 @@ MonoBehaviour:
   firerate: 0.2
   currentAmmo: 60
   maxAmmo: 100
+  aimShooting: 10
   weaponImage: {fileID: 1408398795}
   uiAnimator: {fileID: 235844848}
 --- !u!114 &491798135 stripped
@@ -13049,6 +13050,8 @@ GameObject:
   - component: {fileID: 560874771}
   - component: {fileID: 560874773}
   - component: {fileID: 560874772}
+  - component: {fileID: 560874775}
+  - component: {fileID: 560874774}
   m_Layer: 0
   m_Name: riflePickup
   m_TagString: Untagged
@@ -13063,13 +13066,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560874770}
-  m_LocalRotation: {x: 0.006684931, y: 0.7660153, z: 0.0056093233, w: 0.6427632}
-  m_LocalPosition: {x: -389.15872, y: -249.0511, z: 1.4741905}
-  m_LocalScale: {x: 1.4598541, y: 1.4598539, z: 1.4598541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 277090382}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 100, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &560874772
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13081,7 +13084,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -13146,6 +13149,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &560874774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560874770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068ccf59ea409194885a8ca667e2f314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponName: rifle
+  damage: 1
+  firerate: 0.2
+  currentAmmo: 50
+  maxAmmo: 150
+  aimShooting: 10
+  weaponImage: {fileID: 0}
+  uiAnimator: {fileID: 0}
+--- !u!114 &560874775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560874770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffcce03c5c20301459622e0c4d790a3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentweapon: {fileID: 490009901}
+  weaponOnGround: {fileID: 560874770}
 --- !u!1 &575324502
 GameObject:
   m_ObjectHideFlags: 0
@@ -21567,6 +21604,7 @@ MonoBehaviour:
   firerate: 0.2
   currentAmmo: 100
   maxAmmo: 200
+  aimShooting: 10
   weaponImage: {fileID: 1008486040}
   uiAnimator: {fileID: 1008486039}
 --- !u!95 &1008486039 stripped
