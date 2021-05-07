@@ -170,6 +170,8 @@ public class Interactable : MonoBehaviour
             moveDoor = true;
 
             carve.UpdateNav();
+            if (!AudioController.instance.openDoor.isPlaying)
+                AudioController.instance.PlayopenDoor();
 
         }
         else if (Input.GetKey(KeyCode.E) && PlayerController.instance.currentPoints < pointCost && !moveDoor)
@@ -177,6 +179,8 @@ public class Interactable : MonoBehaviour
             hasPushedE = true;
             contextBox.SetActive(true);
             contextText.text = "You don't have enough points to open this door!";
+            if (!AudioController.instance.cantopenDoor.isPlaying)
+                AudioController.instance.PlaycantopenDoor();
         }
     }
 
