@@ -40,6 +40,7 @@ public class SwitchWeapons : MonoBehaviour
                     weapons[i].SetActive(true);
             }
         }        
+        PlayerController.instance.currentWeapon = weapons[weaponCounter].GetComponent<WeaponController>();
         
     }
 }
