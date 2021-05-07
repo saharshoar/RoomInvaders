@@ -24,11 +24,11 @@ public class PickUps : MonoBehaviour
         // If the pick up is an ammo pickup, and the player collides with it
         if (other.tag == "Player" && gameObject.tag == "ammo pickup")
         {
-            PlayerController.instance.currentAmmo += pickupAmount;
+            PlayerController.instance.currentWeapon.currentAmmo += pickupAmount;
 
-            if (PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo)
+            if (PlayerController.instance.currentWeapon.currentAmmo >= PlayerController.instance.maxAmmo)
             {
-                PlayerController.instance.currentAmmo = PlayerController.instance.maxAmmo;
+                PlayerController.instance.currentWeapon.currentAmmo = PlayerController.instance.maxAmmo;
             }
 
             AudioController.instance.PlayAmmoPickup();

@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public Animator shotGunUI;
     public Animator anim;
 
-    public int currentAmmo = 50;
+    public int currentAmmo = 0;
     public int maxAmmo = 150;
 
     public int damageDealt = 1;
@@ -66,20 +66,21 @@ public class PlayerController : MonoBehaviour
 
     public Image shotGunImage;
 
+    public WeaponController[] weapons;
+
+    public WeaponController currentWeapon = null;
     private float fireRate = 0.3f;
     private float fireRateCounter = 0.3f;
     private bool canFire = true;
 
     public bool hasFlashlight = false;
-    
-    
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
         playerRb = GetComponent<Rigidbody>();
-        ammoText.text = currentAmmo.ToString();
+        ammoText.text = currentWeapon.currentAmmo.ToString();
         pointsText.text = currentPoints.ToString();
         pointsBox.SetActive(false);
         perkBox.SetActive(false);
@@ -89,8 +90,6 @@ public class PlayerController : MonoBehaviour
 
         roundBox.SetActive(true);
         ammoBox.SetActive(true);
-
-        fireRateCounter = fireRate;
 
     }
 
@@ -119,8 +118,8 @@ public class PlayerController : MonoBehaviour
 
             if (damagePickup && !currentlyPoweredUp)
             {
-                tempDamageDealt = damageDealt;
-                damageDealt = damageDealt * 2;
+                tempDamageDealt = currentWeapon.damage;
+                damageDealt = currentWeapon.damage * 2;
                 currentlyPoweredUp = true;
                 damagePickup = false;
             }
@@ -143,7 +142,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && canFire)
             {
-                if (currentAmmo > 0)
+                if (currentWeapon.currentAmmo > 0)
                 {
                     Ray ray = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
                     RaycastHit hit;
@@ -155,12 +154,12 @@ public class PlayerController : MonoBehaviour
 
                         if (hit.transform.tag == "Enemy")
                         {
-                            hit.transform.GetComponent<EnemyController>().TakeDamage(damageDealt);
+                            hit.transform.GetComponent<EnemyController>().TakeDamage(currentWeapon.damage);
                         }
 
                         if (hit.transform.tag == "Enemy3")
                         {
-                            hit.transform.GetComponent<EnemyThirdController>().TakeDamage(damageDealt);
+                            hit.transform.GetComponent<EnemyThirdController>().TakeDamage(currentWeapon.damage);
                         }
                     }
                     else
@@ -169,10 +168,10 @@ public class PlayerController : MonoBehaviour
                     }
 
                     AudioController.instance.PlayGunshot();
-                    currentAmmo--;
+                    currentWeapon.currentAmmo--;
 
                     //Shotgun animation
-                    shotGunUI.SetTrigger("Shoot");
+                    currentWeapon.uiAnimator.SetTrigger("Shoot");
 
                     canFire = false;
                 }
@@ -183,7 +182,7 @@ public class PlayerController : MonoBehaviour
                 FireRateCountdown();
             }
 
-            ammoText.text = currentAmmo.ToString();
+            ammoText.text = currentWeapon.currentAmmo.ToString();
             pointsText.text = currentPoints.ToString();
 
             // Bobbing animation for player
