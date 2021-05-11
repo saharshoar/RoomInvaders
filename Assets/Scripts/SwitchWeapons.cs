@@ -6,6 +6,7 @@ public class SwitchWeapons : MonoBehaviour
 {
     public GameObject[] weapons;
     int weaponCounter = 0;
+    float fireRate = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +42,7 @@ public class SwitchWeapons : MonoBehaviour
             }
         }        
         PlayerController.instance.currentWeapon = weapons[weaponCounter].GetComponent<WeaponController>();
+
         
     }
 }

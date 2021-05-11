@@ -11682,7 +11682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponName: shotgun
   damage: 2
-  firerate: 0.2
+  firerate: 1000
   currentAmmo: 60
   maxAmmo: 100
   aimShooting: 10
@@ -21587,7 +21587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponName: pistol
   damage: 1
-  firerate: 0.2
+  firerate: 0.00001
   currentAmmo: 100
   maxAmmo: 200
   aimShooting: 10
