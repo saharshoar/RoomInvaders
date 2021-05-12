@@ -118,6 +118,8 @@ public class PlayerController : MonoBehaviour
 
             if (damagePickup && !currentlyPoweredUp)
             {
+                tempDamageDealt = currentWeapon.damage;
+                damageDealt = currentWeapon.damage * 2;
                 currentlyPoweredUp = true;
                 damagePickup = false;
             }
@@ -134,45 +136,10 @@ public class PlayerController : MonoBehaviour
 
             if (currentlyPoweredUp)
             {
-                //shotGunImage.color = Color.red;
                 currentWeapon.weaponImage.color = Color.red; 
                 
-                if (!hasDamagePerk)
-                {
-                    tempDamageDealt = currentWeapon.damage;
-                    damageDealt = currentWeapon.damage * 2;
-                }
-                else if (hasDamagePerk)
-                {
-                    tempDamageDealt = currentWeapon.damage * 3;
-                    damageDealt = currentWeapon.damage * 6;
-                }
             }
-            else if (!currentlyPoweredUp)
-            {
-                currentWeapon.weaponImage.color = Color.white;
-
-                if (!hasDamagePerk)
-                {
-                    tempDamageDealt = currentWeapon.damage;
-                    damageDealt = currentWeapon.damage;
-                }
-                else if (hasDamagePerk)
-                {
-                    tempDamageDealt = currentWeapon.damage * 3;
-                    damageDealt = currentWeapon.damage * 3;
-                }
-            }
-
-            if (!damagePickup && !currentlyPoweredUp)
-            {
-                if (!hasDamagePerk)
-                    damageDealt = currentWeapon.damage;
-                else
-                    damageDealt = currentWeapon.damage * 3;
-            }
-
-
+            
             if (Input.GetMouseButtonDown(0) && canFire)
             {
                 if (currentWeapon.currentAmmo > 0)
@@ -187,12 +154,12 @@ public class PlayerController : MonoBehaviour
 
                         if (hit.transform.tag == "Enemy")
                         {
-                            hit.transform.GetComponent<EnemyController>().TakeDamage(damageDealt);
+                            hit.transform.GetComponent<EnemyController>().TakeDamage(currentWeapon.damage);
                         }
 
                         if (hit.transform.tag == "Enemy3")
                         {
-                            hit.transform.GetComponent<EnemyThirdController>().TakeDamage(damageDealt);
+                            hit.transform.GetComponent<EnemyThirdController>().TakeDamage(currentWeapon.damage);
                         }
                     }
                     else
@@ -257,7 +224,6 @@ public class PlayerController : MonoBehaviour
             perkBox.SetActive(false);
             roundBox.SetActive(false);
             ammoBox.SetActive(false);
-            currentWeapon.gameObject.SetActive(false);
         }
 
 
@@ -299,7 +265,7 @@ public class PlayerController : MonoBehaviour
         if (fireRateCounter <= 0)
         {
             canFire = true;
-            fireRateCounter = fireRate;
+             fireRateCounter = currentWeapon.firerate;
         }
     }
 

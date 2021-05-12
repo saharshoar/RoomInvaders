@@ -14,6 +14,8 @@ public class WeaponController : MonoBehaviour
  
     public float aimShooting = 10;
 
+    public bool available = false;
+
 
     public Image weaponImage;
 

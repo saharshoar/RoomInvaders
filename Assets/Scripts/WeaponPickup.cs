@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour
 {
-    public GameObject currentweapon;
-    public GameObject weaponOnGround;
+    public string weaponPickupName = "rifle";
+    //public GameObject currentweapon;
+    //public GameObject weaponOnGround;
     // Start is called before the first frame update
     void Start()
     {
-        currentweapon.SetActive(false);
+        //currentweapon.SetActive(false);
         
     }
-    void onTriggerEnter(Collider _collider)
+
+    void OnCollisionEnter(Collision collision)
     {
-        if(_collider.gameObject.tag =="Player")
+        UnityEngine.Debug.Log("Collided with " + name + ", tag " + collision.gameObject.tag);
+        if (collision.gameObject.tag == "Player") 
         {
-            currentweapon.SetActive(true);
-            weaponOnGround.SetActive(false);
+            SwitchWeapons.instance.SwitchToWeapon(weaponPickupName);
+            Destroy(gameObject);
         }
+        
     }
 
     // Update is called once per frame
