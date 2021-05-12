@@ -69,8 +69,8 @@ public class PlayerController : MonoBehaviour
     public WeaponController[] weapons;
 
     public WeaponController currentWeapon = null;
-    private float fireRate = 0.3f;
-    private float fireRateCounter = 0.3f;
+    public float fireRate = 0.3f;
+    public float fireRateCounter = 0.3f;
     private bool canFire = true;
 
     public bool hasFlashlight = false;
