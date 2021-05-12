@@ -204,10 +204,10 @@ public class Interactable : MonoBehaviour
             && !(PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo && !hasPushedE))
         {
             PlayerController.instance.currentPoints -= pointCost;
-            PlayerController.instance.currentAmmo += PlayerController.instance.maxAmmo / 2;
+            PlayerController.instance.currentWeapon.currentAmmo += PlayerController.instance.currentWeapon.maxAmmo / 2;
 
-            if (PlayerController.instance.currentAmmo >= PlayerController.instance.maxAmmo)
-                PlayerController.instance.currentAmmo = PlayerController.instance.maxAmmo;
+            if (PlayerController.instance.currentWeapon.currentAmmo >= PlayerController.instance.currentWeapon.maxAmmo)
+                PlayerController.instance.currentWeapon.currentAmmo = PlayerController.instance.currentWeapon.maxAmmo;
 
             AudioController.instance.PlayAmmoPickup();
 

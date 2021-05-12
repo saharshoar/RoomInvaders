@@ -118,8 +118,6 @@ public class PlayerController : MonoBehaviour
 
             if (damagePickup && !currentlyPoweredUp)
             {
-                tempDamageDealt = currentWeapon.damage;
-                damageDealt = currentWeapon.damage * 2;
                 currentlyPoweredUp = true;
                 damagePickup = false;
             }
@@ -136,7 +134,42 @@ public class PlayerController : MonoBehaviour
 
             if (currentlyPoweredUp)
             {
-                shotGunImage.color = Color.red;
+                //shotGunImage.color = Color.red;
+                currentWeapon.weaponImage.color = Color.red; 
+                
+                if (!hasDamagePerk)
+                {
+                    tempDamageDealt = currentWeapon.damage;
+                    damageDealt = currentWeapon.damage * 2;
+                }
+                else if (hasDamagePerk)
+                {
+                    tempDamageDealt = currentWeapon.damage * 3;
+                    damageDealt = currentWeapon.damage * 6;
+                }
+            }
+            else if (!currentlyPoweredUp)
+            {
+                currentWeapon.weaponImage.color = Color.white;
+
+                if (!hasDamagePerk)
+                {
+                    tempDamageDealt = currentWeapon.damage;
+                    damageDealt = currentWeapon.damage;
+                }
+                else if (hasDamagePerk)
+                {
+                    tempDamageDealt = currentWeapon.damage * 3;
+                    damageDealt = currentWeapon.damage * 3;
+                }
+            }
+
+            if (!damagePickup && !currentlyPoweredUp)
+            {
+                if (!hasDamagePerk)
+                    damageDealt = currentWeapon.damage;
+                else
+                    damageDealt = currentWeapon.damage * 3;
             }
 
 
@@ -154,12 +187,12 @@ public class PlayerController : MonoBehaviour
 
                         if (hit.transform.tag == "Enemy")
                         {
-                            hit.transform.GetComponent<EnemyController>().TakeDamage(currentWeapon.damage);
+                            hit.transform.GetComponent<EnemyController>().TakeDamage(damageDealt);
                         }
 
                         if (hit.transform.tag == "Enemy3")
                         {
-                            hit.transform.GetComponent<EnemyThirdController>().TakeDamage(currentWeapon.damage);
+                            hit.transform.GetComponent<EnemyThirdController>().TakeDamage(damageDealt);
                         }
                     }
                     else
@@ -205,8 +238,8 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("isMoving", false);
             }
           
-                // Makes the points UI start once points have been accumulated
-                if (currentPoints > 0)
+            // Makes the points UI start once points have been accumulated
+            if (currentPoints > 0)
             {
                 pointsBox.SetActive(true);
             }
@@ -224,6 +257,7 @@ public class PlayerController : MonoBehaviour
             perkBox.SetActive(false);
             roundBox.SetActive(false);
             ammoBox.SetActive(false);
+            currentWeapon.gameObject.SetActive(false);
         }
 
 
@@ -252,7 +286,8 @@ public class PlayerController : MonoBehaviour
         {
             currentlyPoweredUp = false;
             damageDealt = tempDamageDealt;
-            shotGunImage.color = Color.white;
+            //shotGunImage.color = Color.white;
+            currentWeapon.weaponImage.color = Color.white;
             powerUpCounter = 15f;
         }
     }

@@ -10,7 +10,7 @@ public class SwitchWeapons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapons[0].SetActive(true); //
+        weapons[0].SetActive(true);
         weapons[1].SetActive(false);
     }
 

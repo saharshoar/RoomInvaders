@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -10550,7 +10550,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1360478088, guid: 88d70d6ee6b67a34c9c0be333370a2e4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926759181232533304, guid: 88d70d6ee6b67a34c9c0be333370a2e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3926759181490044234, guid: 88d70d6ee6b67a34c9c0be333370a2e4,
         type: 3}
