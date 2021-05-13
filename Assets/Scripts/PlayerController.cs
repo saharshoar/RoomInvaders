@@ -265,7 +265,7 @@ public class PlayerController : MonoBehaviour
         if (fireRateCounter <= 0)
         {
             canFire = true;
-             fireRateCounter = currentWeapon.firerate;
+            fireRateCounter = currentWeapon.firerate;
         }
     }
 

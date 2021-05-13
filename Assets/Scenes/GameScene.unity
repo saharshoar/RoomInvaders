@@ -10548,6 +10548,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 661931946, guid: 88d70d6ee6b67a34c9c0be333370a2e4, type: 3}
+      propertyPath: weapons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 661931946, guid: 88d70d6ee6b67a34c9c0be333370a2e4, type: 3}
+      propertyPath: weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 1281791382}
     - target: {fileID: 1360478088, guid: 88d70d6ee6b67a34c9c0be333370a2e4, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -11691,6 +11699,7 @@ MonoBehaviour:
   currentAmmo: 60
   maxAmmo: 100
   aimShooting: 10
+  available: 0
   weaponImage: {fileID: 1408398795}
   uiAnimator: {fileID: 235844848}
 --- !u!114 &491798135 stripped
@@ -18881,6 +18890,7 @@ GameObject:
   - component: {fileID: 899775340}
   - component: {fileID: 899775339}
   - component: {fileID: 899775338}
+  - component: {fileID: 899775343}
   m_Layer: 0
   m_Name: riflePickUp
   m_TagString: Untagged
@@ -18900,8 +18910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffcce03c5c20301459622e0c4d790a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentweapon: {fileID: 1008486036}
-  weaponOnGround: {fileID: 899775337}
+  weaponPickupName: rifle
 --- !u!114 &899775339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18920,6 +18929,7 @@ MonoBehaviour:
   currentAmmo: 50
   maxAmmo: 150
   aimShooting: 10
+  available: 0
   weaponImage: {fileID: 0}
   uiAnimator: {fileID: 0}
 --- !u!114 &899775340
@@ -18998,6 +19008,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &899775343
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899775337}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &901228328
 GameObject:
   m_ObjectHideFlags: 0
@@ -21723,6 +21746,7 @@ MonoBehaviour:
   currentAmmo: 100
   maxAmmo: 200
   aimShooting: 10
+  available: 0
   weaponImage: {fileID: 1008486040}
   uiAnimator: {fileID: 1008486039}
 --- !u!95 &1008486039 stripped
@@ -27418,6 +27442,7 @@ MonoBehaviour:
   currentAmmo: 100
   maxAmmo: 200
   aimShooting: 10
+  available: 0
   weaponImage: {fileID: 1281791386}
   uiAnimator: {fileID: 1281791385}
 --- !u!95 &1281791385
