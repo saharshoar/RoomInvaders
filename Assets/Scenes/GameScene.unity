@@ -11694,9 +11694,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponName: shotgun
-  damage: 2
-  firerate: 1000
-  currentAmmo: 60
+  damage: 7
+  firerate: 0.7
+  currentAmmo: 40
   maxAmmo: 100
   aimShooting: 10
   available: 0
@@ -19002,7 +19002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899775337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.69, y: 0.49, z: 1.611298}
+  m_LocalPosition: {x: 0.404, y: 0.498, z: -5.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -21741,10 +21741,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponName: pistol
-  damage: 1
-  firerate: 0.00001
-  currentAmmo: 100
-  maxAmmo: 200
+  damage: 3
+  firerate: 0.5
+  currentAmmo: 50
+  maxAmmo: 100
   aimShooting: 10
   available: 0
   weaponImage: {fileID: 1008486040}
@@ -27421,7 +27421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 480.9217, y: 66.247086}
+  m_AnchoredPosition: {x: 0.00048828125, y: 53.2}
   m_SizeDelta: {x: -355.625, y: 309.375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1281791384
@@ -27436,7 +27436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068ccf59ea409194885a8ca667e2f314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponName: pistol
+  WeaponName: rifle
   damage: 1
   firerate: 0.2
   currentAmmo: 100
@@ -30351,6 +30351,11 @@ PrefabInstance:
       propertyPath: totalPointsText
       value: 
       objectReference: {fileID: 1726639284}
+    - target: {fileID: 1791635609446476729, guid: 5b025a3e484eeb9498a29b4d6180278c,
+        type: 3}
+      propertyPath: currentlyPoweredUp
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1791635609446476729, guid: 5b025a3e484eeb9498a29b4d6180278c,
         type: 3}
       propertyPath: weapons.Array.size
