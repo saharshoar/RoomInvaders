@@ -32456,8 +32456,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponName: mgun
   damage: 1
-  firerate: 0.2
-  currentAmmo: 1000
+  firerate: 0.219
+  currentAmmo: 500
   maxAmmo: 200
   aimShooting: 10
   available: 0
