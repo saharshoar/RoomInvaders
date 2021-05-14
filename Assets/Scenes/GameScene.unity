@@ -27588,7 +27588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponName: rifle
   damage: 1
-  firerate: 0
+  firerate: 0.5
   currentAmmo: 100
   maxAmmo: 200
   aimShooting: 10
@@ -30428,9 +30428,19 @@ PrefabInstance:
       objectReference: {fileID: 1729829331}
     - target: {fileID: 1791635609446476729, guid: 5b025a3e484eeb9498a29b4d6180278c,
         type: 3}
+      propertyPath: rifleUI
+      value: 
+      objectReference: {fileID: 1281791385}
+    - target: {fileID: 1791635609446476729, guid: 5b025a3e484eeb9498a29b4d6180278c,
+        type: 3}
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 925960832}
+    - target: {fileID: 1791635609446476729, guid: 5b025a3e484eeb9498a29b4d6180278c,
+        type: 3}
+      propertyPath: pistolUI
+      value: 
+      objectReference: {fileID: 1008486039}
     - target: {fileID: 1791635609446476729, guid: 5b025a3e484eeb9498a29b4d6180278c,
         type: 3}
       propertyPath: roundBox
@@ -30476,6 +30486,11 @@ PrefabInstance:
       propertyPath: pointsText
       value: 
       objectReference: {fileID: 1259073740}
+    - target: {fileID: 1791635609446476729, guid: 5b025a3e484eeb9498a29b4d6180278c,
+        type: 3}
+      propertyPath: damagePickup
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1791635609446476729, guid: 5b025a3e484eeb9498a29b4d6180278c,
         type: 3}
       propertyPath: shotGunImage
@@ -32441,8 +32456,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponName: mgun
   damage: 1
-  firerate: 0
-  currentAmmo: 100
+  firerate: 0.2
+  currentAmmo: 1000
   maxAmmo: 200
   aimShooting: 10
   available: 0

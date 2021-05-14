@@ -9,6 +9,7 @@ public class SwitchWeapons : MonoBehaviour
     public GameObject[] weapons;
     int weaponCounter = 0;
     float fireRate = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,21 @@ public class SwitchWeapons : MonoBehaviour
     void Update()
     {
         int newWeapon = weaponCounter;
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            if(newWeapon >= transform.childCount -1)
+                newWeapon = 0;
+            else
+                newWeapon++;
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            if(newWeapon <= 0)
+                newWeapon = transform.childCount -1 ;
+            else
+                newWeapon--;
+        }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             newWeapon = 0;

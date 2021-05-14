@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
                 
             }
             
-            if (Input.GetMouseButtonDown(0) && canFire)
+            if (Input.GetMouseButton(0) && canFire)
             {
                 if (currentWeapon.currentAmmo > 0)
                 {
@@ -178,6 +178,7 @@ public class PlayerController : MonoBehaviour
                     canFire = false;
                 }
             }
+            
 
             if (!canFire)
             {
