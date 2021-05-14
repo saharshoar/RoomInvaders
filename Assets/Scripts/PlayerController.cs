@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bulletImpact;
     public Animator shotGunUI;
+    public Animator rifleUI;
+    public Animator pistolUI;
     public Animator anim;
 
     public int currentAmmo = 0;
@@ -71,7 +73,7 @@ public class PlayerController : MonoBehaviour
     public WeaponController currentWeapon = null;
     public float fireRate = 0.3f;
     public float fireRateCounter = 0.3f;
-    private bool canFire = true;
+    private bool canFire = false;
 
     public bool hasFlashlight = false;
 

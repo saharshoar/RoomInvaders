@@ -16,6 +16,7 @@ public class SwitchWeapons : MonoBehaviour
         foreach (var weapon in weapons)
         {
             weapon.SetActive(false);
+            weapons[0].SetActive(true);
         }
         weapons[0].GetComponent<WeaponController>().available = true;
         weapons[1].GetComponent<WeaponController>().available = true;
@@ -38,12 +39,17 @@ public class SwitchWeapons : MonoBehaviour
         {
             newWeapon = 2;
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            newWeapon = 3;
+        }
         
         if (newWeapon != weaponCounter)
         {
             Debug.Log("Switching to weapon index " + newWeapon.ToString());
             SwitchToWeapon(newWeapon);
         }
+        
             
     }
 
@@ -69,6 +75,8 @@ public class SwitchWeapons : MonoBehaviour
 
     public void SwitchToWeapon(int newWeapon)
     {
+        
+        
         if (newWeapon == weaponCounter) return;
 
         if (newWeapon < 0 || newWeapon >= weapons.Length) return;

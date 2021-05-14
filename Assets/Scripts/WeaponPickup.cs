@@ -5,6 +5,9 @@ using UnityEngine;
 public class WeaponPickup : MonoBehaviour
 {
     public string weaponPickupName = "rifle";
+    public string weaponMgun = "mgun";
+
+
     //public GameObject currentweapon;
     //public GameObject weaponOnGround;
     // Start is called before the first frame update
