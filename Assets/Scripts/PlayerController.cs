@@ -201,7 +201,14 @@ public class PlayerController : MonoBehaviour
                     }
 
                     //AudioController.instance.PlayGunshot();
-                    currentWeapon.PlayGunsound();
+                    if (hasDamagePerk == true)
+                    {
+                        currentWeapon.PlayGunsoundUpgrade();
+                    }
+                    else
+                    {
+                        currentWeapon.PlayGunsound();
+                    }
                     currentWeapon.currentAmmo--;
 
                     //Shotgun animation

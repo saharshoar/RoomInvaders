@@ -287,7 +287,7 @@ public class Interactable : MonoBehaviour
             PlayerController.instance.hasDamagePerk = true;
             PlayerController.instance.PerkUIUpdate(PlayerController.instance.damagePerkVal);
 
-            AudioController.instance.IncreaseGunshot();
+
         }
 
     }

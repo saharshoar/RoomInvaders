@@ -11,7 +11,7 @@ public class WeaponController : MonoBehaviour
     public float firerate = 0.2f;
     public int currentAmmo = 50;
     public int maxAmmo = 150;
-    public AudioSource gunsound;
+    public AudioSource gunsound, upgradedSound;
  
     public float aimShooting = 10;
 
@@ -27,6 +27,11 @@ public class WeaponController : MonoBehaviour
     {
         gunsound.Stop();
         gunsound.Play();
+    }
+    public void PlayGunsoundUpgrade()
+    {
+        upgradedSound.Stop();
+        upgradedSound.Play();
     }
 
     // Start is called before the first frame update
