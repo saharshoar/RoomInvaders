@@ -200,7 +200,8 @@ public class PlayerController : MonoBehaviour
                         //Debug.Log("I'm hitting nothing");
                     }
 
-                    AudioController.instance.PlayGunshot();
+                    //AudioController.instance.PlayGunshot();
+                    currentWeapon.PlayGunsound();
                     currentWeapon.currentAmmo--;
 
                     //Shotgun animation

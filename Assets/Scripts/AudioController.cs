@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     public static AudioController instance;
-    public AudioSource ammo, enemyDeath, enemyShot, gunshot, health, playerHurt, gunshotUpgrade, footstepOutside, footstepInside, openDoor, cantopenDoor;
+    public AudioSource ammo, enemyDeath, enemyShot, gunshot, health, playerHurt, gunshotUpgrade, footstepOutside, footstepInside, openDoor, cantopenDoor, pistolShot, rifleShot, miniShot;
 
 
     private void Awake()
@@ -65,6 +65,21 @@ public class AudioController : MonoBehaviour
     {
         gunshot.Stop();
         gunshot.Play();
+    }
+    public void PlaypistolShot()
+    {
+        pistolShot.Stop();
+        pistolShot.Play();
+    }
+    public void PlayrifleShot()
+    {
+        rifleShot.Stop();
+        rifleShot.Play();
+    }
+    public void PlayminiShot()
+    {
+        miniShot.Stop();
+        miniShot.Play();
     }
     public void IncreaseGunshot()
     {
